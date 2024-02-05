@@ -1,0 +1,205 @@
+<template>
+	<h1 id="title">Fabulously Optimized for Minecraft Launcher</h2>
+	<div id="versionListDiv">
+		<button id="downloadLatest">Download latest</button>
+
+		<ul id="versionsList">
+			
+		</ul>
+		<p><button id="olderVersions" onclick="window.open('https://www.curseforge.com/minecraft/modpacks/fabulously-optimized/files?showAlphaFiles=show')">Older
+			versions (Additional Files)</button></p>
+	</div>
+	<div id="footer">
+		<p><b>Important:</b> Please allow popups and multiple downloads when asked - sometimes mods must be downloaded
+			separately and placed to the mods folder manually.</p>
+		<a href="https://wiki.download.fo/readme/install-instructions#minecraft-launcher-vanilla">How to install?</a>
+	</div>
+
+	<div id="loading-modal" class="modal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">Downloading pack</p>
+			</header>
+			<section class="modal-card-body">
+				<p>
+					Files required for the modpack are currently being downloaded, please wait.
+				</p>
+			</section>
+			<footer class="modal-card-foot">
+				<progress id="loading-progress" class="progress is-primary" value="0" max="100">0%</progress>
+			</footer>
+		</div>
+	</div>
+</template>
+
+<script>
+    useSeoMeta({
+    title: "Fabulously Optimized - download for Minecraft Launcher",
+    ogTitle: "Fabulously Optimized - download for Minecraft Launcher",
+    description: `You can download Fabulously Optimized, a simple Minecraft modpack focusing on performance and graphics enhancements, for Minecraft Launcher here.`,
+    ogDescription: `You can download Fabulously Optimized, a simple Minecraft modpack focusing on performance and graphics enhancements, for Minecraft Launcher here.`,
+    ogImage: "/icon.png",
+    twitterCard: "summary",
+    twitterImage: "/icon.png",
+    themeColor: "#d19321",
+    });
+
+    export default {
+        async function loadVersionsFromURL(url) {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error loading data:', error);
+                return null;
+            }
+        }
+
+        function getLatestVersionsForAllGameVersions(versions) {
+            const latestVersionsMap = {};
+
+            versions.forEach(version => {
+                const versionGameVersions = version.game_versions; // Assuming multiple game versions in the array
+
+                versionGameVersions.forEach(gameVersion => {
+                    if (isVersionAllowed(gameVersion) && (!latestVersionsMap[gameVersion] || compareVersions(
+                            version.version_number, latestVersionsMap[gameVersion].version_number) > 0)) {
+                        latestVersionsMap[gameVersion] = version;
+                    }
+                });
+            });
+
+            const sortedVersions = Object.values(latestVersionsMap).sort((a, b) => compareVersions(b.version_number, a
+                .version_number));
+            return sortedVersions;
+        }
+
+        function isVersionAllowed(version) {
+            const allowedFromVersion = '1.19.4';
+            return compareVersions(version, allowedFromVersion) >= 0;
+        }
+
+        function compareVersions(a, b) {
+            const splitVersion = (version) => {
+                const [main, preRelease] = version.split('-');
+                return [...main.split('.').map(Number), preRelease ? preRelease : ''];
+            };
+
+            const aParts = splitVersion(a);
+            const bParts = splitVersion(b);
+
+            for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                const partA = aParts[i] || 0;
+                const partB = bParts[i] || 0;
+
+                if (partA > partB) return 1;
+                if (partA < partB) return -1;
+            }
+
+            return 0;
+        }
+
+        function printVersionsAsHTML(versions) {
+            const versionsList = document.getElementById('versionsList');
+
+            versions.forEach(version => {
+                const listItem = document.createElement('li');
+                const button = document.createElement('button');
+                const versionName = version.name;
+                button.textContent = versionName;
+                button.onclick = () => downloadPack(version.files[0].url); // Assuming always one file in files array
+                listItem.appendChild(button);
+                versionsList.appendChild(listItem);
+            });
+        }
+
+        function downloadPack(url) {
+            // Function to handle downloading the pack from the provided URL
+            console.log('Downloading pack from:', url);
+            // You can add logic to trigger the download here
+        }
+
+        const jsonURL = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
+
+        urlParams = new URLSearchParams(window.location.search);
+        const downloadParam = urlParams.get('download');
+        const downloadLatestButtonVanilla = document.getElementById('downloadLatest');
+
+        loadVersionsFromURL(jsonURL)
+            .then(data => {
+                if (data) {
+                    let versionsToDisplay = getLatestVersionsForAllGameVersions(data);
+
+                    printVersionsAsHTML(versionsToDisplay);
+
+                    if (downloadParam === 'latest') {
+                        // Download the first (newest) item
+                        downloadPack(versionsToDisplay[0].files[0].url);
+                    } else if (downloadParam) {
+                        // Download specific version based on query parameter
+                        const foundVersion = versionsToDisplay.find(version => version.game_versions[0] === downloadParam);
+                        if (foundVersion) {
+                            downloadPack(foundVersion.files[0].url);
+                        } else {
+                            alert('Requested version not found');
+                        }
+                    }
+
+                    downloadLatestButtonVanilla.addEventListener('click', () => {
+                        if (versionsToDisplay.length > 0) {
+                            downloadPack(versionsToDisplay[0].files[0].url);
+                        } else {
+                            alert('No versions available to download');
+                        }
+                    });
+                } else {
+                    console.error('Failed to load data');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+<!--
+<script src="./assets/js/FileSaver.min.js"></script>
+<script src="./assets/js/jszip.min.js"></script>
+<script src="./assets/js/jszip-utils.min.js"></script>
+<script src="./assets/js/converter.js"></script>
+-->
+
+<style scoped>
+    #title {
+        padding: 0.5em;
+        font-size: 2em;
+    }
+
+    button{
+        min-width: 20vw;
+    }
+
+    #versionListDiv {
+        padding: 1em;
+    }
+
+    #downloadLatest {
+        font-size: 1.5em;
+    }
+
+    #versionsList > li
+    {
+        padding-top: 1em; 
+    }
+
+    #olderVersions {
+        margin-top: 1em;
+    }
+
+    #versionsList > li > button {
+        font-size: 1em;
+    }
+
+    #footer {
+        padding: 1em;
+    }
+</style>
