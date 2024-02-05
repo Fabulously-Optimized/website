@@ -111,6 +111,10 @@ const features: any = ref([
         <Button color="green" @click="navigateTo(`/modrinth`, { external: true })">
           <DownloadIcon />Modrinth
         </Button>
+        <Button color="gray" @click="navigateTo(`/vanilla`, { external: true })">
+          <DownloadIcon />$t("content.home.columned-hero.vanilla")
+        </Button>
+        <p>$t("content.home.columned-hero.disclaimer")</p>
       </div>
     </div>
     <div class="column graph__container">
@@ -192,6 +196,7 @@ const features: any = ref([
     <div class="buttons">
       <Button :large="true" color="orange" @click="navigateTo(`/curseforge`, { external: true })">CurseForge</Button>
       <Button :large="true" color="green" @click="navigateTo(`/modrinth`, { external: true })">Modrinth</Button>
+      <Button :large="true" color="gray" @click="navigateTo(`/vanilla`, { external: true })">$t("content.home.columned-hero.vanilla")</Button>
     </div>
     <!-- <DownloadSection class="download-card-fix" /> -->
   </div>
