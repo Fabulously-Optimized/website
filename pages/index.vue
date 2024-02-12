@@ -123,45 +123,34 @@ const features: any = ref([
       <!-- <img class="dramatic-screenshot" src="/dramatic-screenshot.webp" /> -->
       <div class="graph">
         <div class="item">
-          <p class="pretitle">FO</p>
+          <p class="pretitle">Fabulously Optimized</p>
           <div class="bar" style="background-color: #f5a50f !important">
-            <p>259fps</p>
-          </div>
-        </div>
-        <div class="item">
-          <p class="pretitle">OptiFine</p>
-          <div class="bar">
-            <p>56fps</p>
+            <p>259{{ $t("content.home.graph.fps") }}</p>
           </div>
         </div>
         <div class="item">
           <p class="pretitle">{{ $t("content.home.graph.vanilla") }}</p>
           <div class="bar">
-            <p>49fps</p>
+            <p>49{{ $t("content.home.graph.fps") }}</p>
           </div>
         </div>
       </div>
       <br />
       <div>
-        <!-- Fabulously Optimized {{ $t("content.home.graph.title.is") }}
-          <span class="smaller__gradient">4x {{ $t("content.home.graph.title.quicker") }}</span>{{
-            $t("content.home.graph.title.than") }} OptiFine.<br /> -->
         <h3 v-html="$t('content.home.graph.subtitle')"></h3>
       </div>
-      <small>AMD Ryzen 5 2600 (12) @ 3.400GH and NVIDIA GeForce GTX 1060 3GB running
-        Minecraft 1.20.1, OptiFine for 1.20.1, Fabric Loader with Fabulously
-        Optimized 5.4.1 RD:8, Singleplayer, PLd</small>
+      <small v-html="$t('content.home.graph.small')"></small>
     </div>
   </div>
   <div class="centered-hero">
     <h1>{{ $t("content.home.features.title") }}</h1>
-    <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${$t(
+    <iframe width="1120" height="630" :src="`https://www.youtube.com/embed/${$t(
       'content.home.features.videoID'
     )}`" title="YouTube video player" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen></iframe>
     <div class="features">
-      <div v-for=" feature  in features" class="feature-block">
+      <div v-for=" feature in features" class="feature-block">
         <div>
           <h1>
             <component class="feature-icon" :is="feature.icon"></component><span>{{ $t(`feature.${feature.id}.title`)

@@ -79,7 +79,7 @@
   font-family: "Inter", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  margin-right: 0.5rem;
+  /*margin-right: 0.5rem;*/
 }
 
 // Make gradient text smaller on mobile.
@@ -116,9 +116,9 @@
   }
 
   iframe {
-    // Ratio: (560px by 315px) / 2
-    width: 560px;
-    height: 315px;
+    // Ratio: (1120px by 630px) / 2
+    width: 70em;
+    height: 39.375em;
     max-width: 100%;
     border-radius: var(--gap-xl);
   }
