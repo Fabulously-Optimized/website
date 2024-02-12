@@ -124,6 +124,12 @@ const features: any = ref([
           </div>
         </div>
         <div class="item">
+          <p class="pretitle">{{ $t("content.home.graph.competitor") }}</p>
+          <div class="bar">
+            <p>56{{ $t("content.home.graph.fps") }}</p>
+          </div>
+        </div>
+        <div class="item">
           <p class="pretitle">{{ $t("content.home.graph.vanilla") }}</p>
           <div class="bar">
             <p>49{{ $t("content.home.graph.fps") }}</p>
