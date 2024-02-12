@@ -46,120 +46,170 @@
     });
 
     export default {
-        async function loadVersionsFromURL(url) {
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Error loading data:', error);
-                return null;
-            }
-        }
-
-        function getLatestVersionsForAllGameVersions(versions) {
-            const latestVersionsMap = {};
-
-            versions.forEach(version => {
-                const versionGameVersions = version.game_versions; // Assuming multiple game versions in the array
-
-                versionGameVersions.forEach(gameVersion => {
-                    if (isVersionAllowed(gameVersion) && (!latestVersionsMap[gameVersion] || compareVersions(
-                            version.version_number, latestVersionsMap[gameVersion].version_number) > 0)) {
-                        latestVersionsMap[gameVersion] = version;
-                    }
-                });
-            });
-
-            const sortedVersions = Object.values(latestVersionsMap).sort((a, b) => compareVersions(b.version_number, a
-                .version_number));
-            return sortedVersions;
-        }
-
-        function isVersionAllowed(version) {
-            const allowedFromVersion = '1.19.4';
-            return compareVersions(version, allowedFromVersion) >= 0;
-        }
-
-        function compareVersions(a, b) {
-            const splitVersion = (version) => {
-                const [main, preRelease] = version.split('-');
-                return [...main.split('.').map(Number), preRelease ? preRelease : ''];
-            };
-
-            const aParts = splitVersion(a);
-            const bParts = splitVersion(b);
-
-            for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-                const partA = aParts[i] || 0;
-                const partB = bParts[i] || 0;
-
-                if (partA > partB) return 1;
-                if (partA < partB) return -1;
+            async function loadVersionsFromURL(url) {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    return null;
+                }
             }
 
-            return 0;
-        }
+            function getLatestVersionsForAllGameVersions(versions) {
+                const latestVersionsMap = {};
 
-        function printVersionsAsHTML(versions) {
-            const versionsList = document.getElementById('versionsList');
+                versions.forEach(version => {
+                    const versionGameVersions = version.game_versions; // Assuming multiple game versions in the array
 
-            versions.forEach(version => {
-                const listItem = document.createElement('li');
-                const button = document.createElement('button');
-                const versionName = version.name;
-                button.textContent = versionName;
-                button.onclick = () => downloadPack(version.files[0].url); // Assuming always one file in files array
-                listItem.appendChild(button);
-                versionsList.appendChild(listItem);
-            });
-        }
-
-        function downloadPack(url) {
-            // Function to handle downloading the pack from the provided URL
-            console.log('Downloading pack from:', url);
-            // You can add logic to trigger the download here
-        }
-
-        const jsonURL = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
-
-        urlParams = new URLSearchParams(window.location.search);
-        const downloadParam = urlParams.get('download');
-        const downloadLatestButtonVanilla = document.getElementById('downloadLatest');
-
-        loadVersionsFromURL(jsonURL)
-            .then(data => {
-                if (data) {
-                    let versionsToDisplay = getLatestVersionsForAllGameVersions(data);
-
-                    printVersionsAsHTML(versionsToDisplay);
-
-                    if (downloadParam === 'latest') {
-                        // Download the first (newest) item
-                        downloadPack(versionsToDisplay[0].files[0].url);
-                    } else if (downloadParam) {
-                        // Download specific version based on query parameter
-                        const foundVersion = versionsToDisplay.find(version => version.game_versions[0] === downloadParam);
-                        if (foundVersion) {
-                            downloadPack(foundVersion.files[0].url);
-                        } else {
-                            alert('Requested version not found');
-                        }
-                    }
-
-                    downloadLatestButtonVanilla.addEventListener('click', () => {
-                        if (versionsToDisplay.length > 0) {
-                            downloadPack(versionsToDisplay[0].files[0].url);
-                        } else {
-                            alert('No versions available to download');
+                    versionGameVersions.forEach(gameVersion => {
+                        if (isVersionAllowed(gameVersion) && (!latestVersionsMap[gameVersion] || compareVersions(
+                                version.version_number, latestVersionsMap[gameVersion].version_number) > 0)) {
+                            latestVersionsMap[gameVersion] = version;
                         }
                     });
-                } else {
-                    console.error('Failed to load data');
+                });
+
+                const sortedVersions = Object.values(latestVersionsMap).sort((a, b) => compareVersions(b.version_number, a
+                    .version_number));
+                return sortedVersions;
+            }
+
+            function normalizeVersion(version) {
+                const parts = version.split('.');
+                // Ensure version has three parts [major, minor, patch]
+                while (parts.length < 3) {
+                    parts.push('0'); // Append '0' for missing minor/patch numbers
                 }
-            })
-            .catch(error => console.error('Error:', error));
-    }
+                return parts.join('.');
+            }
+
+            function isVersionAllowed(version) {
+                const allowedFromVersion = '1.19.4';
+                const normalizedVersion = normalizeVersion(version);
+                return compareVersions(normalizedVersion, allowedFromVersion) >= 0;
+            }
+
+            function compareVersions(versionA, versionB) {
+                const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
+
+                const parseVersion = (version) => {
+                    const match = version.match(semverRegex);
+                    if (!match) {
+                        console.error("Invalid version format:", version);
+                        return null;
+                    }
+                    return {
+                        major: parseInt(match[1], 10),
+                        minor: parseInt(match[2], 10),
+                        patch: parseInt(match[3], 10),
+                        preRelease: match[4] || '',
+                        buildMetadata: match[5] || ''
+                    };
+                };
+
+                const a = parseVersion(versionA);
+                const b = parseVersion(versionB);
+
+                if (!a || !b) return 0; // Error case handled by parseVersion
+
+                if (a.major !== b.major) return a.major > b.major ? 1 : -1;
+                if (a.minor !== b.minor) return a.minor > b.minor ? 1 : -1;
+                if (a.patch !== b.patch) return a.patch > b.patch ? 1 : -1;
+
+                // If both versions have no pre-release, they are equal at this point
+                if (!a.preRelease && !b.preRelease) return 0;
+
+                // A version without a pre-release field (stable version) should be considered newer than one with a pre-release field
+                if (!a.preRelease) return 1;
+                if (!b.preRelease) return -1;
+
+                // Compare pre-release identifiers
+                // Split pre-release into parts and compare each part
+                const prePartsA = a.preRelease.split('.');
+                const prePartsB = b.preRelease.split('.');
+                for (let i = 0; i < Math.max(prePartsA.length, prePartsB.length); i++) {
+                    const partA = prePartsA[i];
+                    const partB = prePartsB[i];
+
+                    // When one pre-release part is undefined, the other is considered greater
+                    if (partA === undefined) return -1;
+                    if (partB === undefined) return 1;
+
+                    // Numeric comparison for numeric parts, lexicographic for strings
+                    const numPartA = parseInt(partA, 10);
+                    const numPartB = parseInt(partB, 10);
+                    if (!isNaN(numPartA) && !isNaN(numPartB)) {
+                        if (numPartA !== numPartB) return numPartA > numPartB ? 1 : -1;
+                    } else {
+                        if (partA !== partB) return partA > partB ? 1 : -1;
+                    }
+                }
+
+                // If all parts of pre-release identifiers are equal, the versions are considered equal
+                return 0;
+            }
+
+            function printVersionsAsHTML(versions) {
+                const versionsList = document.getElementById('versionsList');
+
+                versions.forEach(version => {
+                    const listItem = document.createElement('li');
+                    const button = document.createElement('button');
+                    const versionName = version.name;
+                    button.textContent = versionName;
+                    button.onclick = () => downloadPack(version.files[0].url); // Assuming always one file in files array
+                    listItem.appendChild(button);
+                    versionsList.appendChild(listItem);
+                });
+            }
+
+            function downloadPack(url) {
+                // Function to handle downloading the pack from the provided URL
+                console.log('Downloading pack from:', url);
+                // You can add logic to trigger the download here
+            }
+
+            const jsonURL = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
+
+            urlParams = new URLSearchParams(window.location.search);
+            const downloadParam = urlParams.get('download');
+            const downloadLatestButtonVanilla = document.getElementById('downloadLatest');
+
+            loadVersionsFromURL(jsonURL)
+                .then(data => {
+                    if (data) {
+                        let versionsToDisplay = getLatestVersionsForAllGameVersions(data);
+
+                        printVersionsAsHTML(versionsToDisplay);
+
+                        if (downloadParam === 'latest') {
+                            // Download the first (newest) item
+                            downloadPack(versionsToDisplay[0].files[0].url);
+                        } else if (downloadParam) {
+                            // Download specific version based on query parameter
+                            const foundVersion = versionsToDisplay.find(version => version.game_versions[0] === downloadParam);
+                            if (foundVersion) {
+                                downloadPack(foundVersion.files[0].url);
+                            } else {
+                                alert('Requested version not found');
+                            }
+                        }
+
+                        downloadLatestButtonVanilla.addEventListener('click', () => {
+                            if (versionsToDisplay.length > 0) {
+                                downloadPack(versionsToDisplay[0].files[0].url);
+                            } else {
+                                alert('No versions available to download');
+                            }
+                        });
+                    } else {
+                        console.error('Failed to load data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
 </script>
 <!--
 <script src="./assets/js/FileSaver.min.js"></script>
