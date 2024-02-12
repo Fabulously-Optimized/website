@@ -1,143 +1,129 @@
-<template>
-    <h1>Give thanks to Fabulously Optimized</h1>
-    <p>So you like the modpack and want to support it? Thank you!</p>
+<script setup lang="ts">
+import { ref } from 'vue';
+import {
+  Button,
+  DownloadIcon,
+  ClientIcon,
+  UsersIcon,
+  ChartIcon,
+  LightBulbIcon,
+  VersionIcon,
+  PaintBrushIcon,
+  renderHighlightedString,
+  UpdatedIcon,
+  DiscordIcon,
+} from "omorphia";
+</script>
+<script lang="ts">
+import { ref, onMounted } from 'vue';
 
-    <h2>The mods</h2>
-    <p>While Fabulously Optimized itself does not take direct donations, there are many mods in it that do.<br>
-        Here's a list of mods that take donations, click to redirect to the donation page.</p>
-    <ul id="projects"></ul>
-    <p><a href="https://download.fo/mods">What do each of the mods do?</a></p>
-    <p>Modders: this list is automatically fetched from Modrinth for the latest stable version of the modpack. All you have to do is add a donation link to your project!</p>
-        
-    <h2>The modpack</h2>
-    <p>There are also several ways you can support the modpack:</p>
-
-    <ul>
-    <li>
-        <strong>▶️ Play using the <a href="https://download.fo/curseforge">CurseForge App</a> or <a href="https://download.fo/modrinth">Modrinth App</a></strong>
-        <ul>
-        <li>Using either of these launchers gives the pack and mod devs money, other launchers currently do not.</li>
-        <li><a href="https://download.fo/install">How to install?</a></li>
-        </ul>
-    </li>
-    <li>
-        <strong><a href="https://download.fo/rate">❤️ Heart and comment on AlternativeTo</a></strong>
-        <ul>
-        <li>Please sign up before doing it, otherwise it will not count ☹️</li>
-        </ul>
-    </li>
-    <li>
-        <strong><a href="https://wiki.download.fo/readme/free-cape">🦸 Get a free FO cape</a></strong>
-    </li>
-    <li>
-        <strong><a href="https://docs.modrinth.com/docs/details/ads/#browser-extensions">🛑 Disable ad blocker on Modrinth</a> and <a href="https://modrinth.com/user/robotkoer">check out my other projects</a></strong>
-    </li>
-    <li>
-        <strong><a href="https://download.fo/host">🗄️ Create a Minecraft server (25% off first month!)</a></strong>
-    </li>
-    <li>
-        <strong>🔗 Tell your friends to <a href="https://download.fo">download.fo</a> by sharing the link!</strong>
-    </li>
-    </ul>
-
-    <h2>Contribute</h2>
-    <p>And if you'd like to do even more, you can always test, write and translate!</p>
-    <ul>
-    <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/issues?q=is%3Aissue+is%3Aopen+label%3A%22feedback%2Ftesters+wanted%22">🧪 Test mods that are planned to be included</a></strong>
-    </li>
-    <li>
-        <strong><a href="https://download.fo/translate">🌐 Translate the modpack and mods</a></strong>
-    </li>
-    <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/wiki/issues">📝 Contribute to the wiki</a></strong>
-    </li>
-    <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/labels/help%20wanted">🧑‍💻 Help with programming things</a></strong>
-    </li>
-    </ul>
-</template>
-
-<script>
-    useSeoMeta({
-    title: "Fabulously Optimized - Give thanks",
-    ogTitle: "Fabulously Optimized - Give thanks",
-    description: `You can support Fabulously Optimized, a simple Minecraft modpack focusing on performance and graphics enhancements, by these actions.`,
-    ogDescription: `You can support Fabulously Optimized, a simple Minecraft modpack focusing on performance and graphics enhancements, by these actions.`,
-    ogImage: "/icon.png",
-    twitterCard: "summary",
-    twitterImage: "/icon.png",
-    themeColor: "#d19321",
-    });
+export default {
+  setup() {
+    const projectDetails = ref([]);
 
     async function fetchProjectVersions() {
-        const response = await fetch(`https://api.modrinth.com/v2/project/1KVo5zza/version?featured=true`);
-        const versions = await response.json();
-        return versions.find(version => version.version_type === "release");
+      console.log('Fetching project versions...');
+      const response = await fetch(`https://api.modrinth.com/v2/project/1KVo5zza/version?featured=true`);
+      const versions = await response.json();
+      return versions.find(version => version.version_type === "release");
     }
 
     async function fetchProjectDetails(projectIds) {
-        const response = await fetch(`https://api.modrinth.com/v2/projects?ids=[${projectIds.map(id => `"${id}"`).join(',')}]`);
-        return response.json();
+      console.log('Fetching project details...');
+      const response = await fetch(`https://example.com/v2/projects?ids=[${projectIds.map(id => `"${id}"`).join(',')}]`);
+      return response.json();  
     }
 
     async function displayProjects() {
-        const version = await fetchProjectVersions();
-        if (!version || !version.dependencies) return; // Exit if no version or dependencies found
-        
-        const projectIds = version.dependencies.map(dep => dep.project_id).filter(id => id); // Filter out falsy values
-        const projectDetails = await fetchProjectDetails(projectIds);
+      console.log('Displaying projects...');
+      const version = await fetchProjectVersions();
+      if (!version || !version.dependencies) {
+        console.log('No version or dependencies found.');
+        return; // Exit if no version or dependencies found
+      }
 
-        // Sort projects by title
-        projectDetails.sort((a, b) => a.title.localeCompare(b.title));
+      const projectIds = version.dependencies.map(dep => dep.project_id).filter(id => id); // Filter out falsy values
+      const projects = await fetchProjectDetails(projectIds);
 
-        const projectsList = document.getElementById('projects');
+      // Sort projects by title
+      projects.sort((a, b) => a.title.localeCompare(b.title));
 
-        projectDetails.forEach(project => {
-            if (project.donation_urls && project.donation_urls.length > 0) {
-                const li = document.createElement('li');
-
-                // Create an img element for the project icon
-                if (project.icon_url) {
-                    const img = document.createElement('img');
-                    img.src = project.icon_url;
-                    img.alt = `${project.title} icon`;
-                    li.appendChild(img);
-                }
-
-                if (project.donation_urls.length === 1) {
-                    // Single donation link
-                    const link = document.createElement('a');
-                    link.href = project.donation_urls[0].url;
-                    link.textContent = project.title;
-                    link.target = "_blank";
-                    li.appendChild(link);
-                } else {
-                    // Multiple donation links
-                    const titleText = document.createTextNode(project.title + ': ');
-                    li.appendChild(titleText);
-
-                    project.donation_urls.forEach((donation, index) => {
-                        if (index > 0) li.appendChild(document.createTextNode(', '));
-                        const link = document.createElement('a');
-                        link.href = donation.url;
-                        link.textContent = donation.platform;
-                        link.target = "_blank";
-                        li.appendChild(link);
-                    });
-                }
-
-                projectsList.appendChild(li);
-            }
-        });
+      projectDetails.value = projects;
+      console.log('Projects updated:', projectDetails.value);
     }
 
-    displayProjects();
+    // Directly call displayProjects.
+    displayProjects().catch(console.error);
+
+    return {
+      projectDetails,
+    };
+  },
+};
 </script>
 
+<template>
+    <h1>{{ $t("content.thanks.title") }}</h1>
+<p>{{ $t("content.thanks.supportMessage") }}</p>
+
+<h2>{{ $t("content.thanks.modsTitle") }}</h2>
+<p>{{ $t("content.thanks.modsDescription") }}</p>
+<ul id="projects"></ul>
+<p><a href="https://download.fo/mods">{{ $t("content.thanks.modsLink") }}</a></p>
+<p>{{ $t("content.thanks.modsAutomaticListFetch") }}</p>
+
+<h2>{{ $t("content.thanks.modpackTitle") }}</h2>
+<p>{{ $t("content.thanks.modpackSupportWays") }}</p>
+
+<ul>
+    <li>
+        <strong>{{ $t("content.thanks.modpackLaunchersTitle") }} <a href="https://download.fo/curseforge">{{ $t("content.thanks.modpackLaunchersCurseforge") }}</a> {{ $t("content.thanks.modpackLaunchersOr") }} <a href="https://download.fo/modrinth">{{ $t("content.thanks.modpackLaunchersModrinth") }}</a></strong>
+        <ul>
+            <li>{{ $t("content.thanks.modpackLaunchersMoneyInfo") }}</li>
+            <li><a href="https://download.fo/install">{{ $t("content.thanks.modpackLaunchersInstallInstructions") }}</a></li>
+        </ul>
+    </li>
+    <li>
+        <strong><a href="https://download.fo/rate">{{ $t("content.thanks.modpackAltToHeartTitle") }}</a></strong>
+        <ul>
+            <li>{{ $t("content.thanks.modpackAltToHeartSignupInfo") }}</li>
+        </ul>
+    </li>
+    <li>
+        <strong><a href="https://wiki.download.fo/readme/free-cape">{{ $t("content.thanks.modpackFreeCapeTitle") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://docs.modrinth.com/docs/details/ads/#browser-extensions">{{ $t("content.thanks.modpackAdBlockerTitle") }}</a> {{ $t("content.thanks.modpackAdBlockerAnd") }} <a href="https://modrinth.com/user/robotkoer">{{ $t("content.thanks.modpackAdBlockerCheckOutProjects") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://download.fo/host">{{ $t("content.thanks.modpackMinecraftServer") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://download.fo">{{ $t("content.thanks.modpackShare") }}</a></strong>
+    </li>
+</ul>
+
+<h2>{{ $t("content.thanks.contributeTitle") }}</h2>
+<p>{{ $t("content.thanks.contributeAdditionalSupportMessage") }}</p>
+<ul>
+    <li>
+        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/issues?q=is%3Aissue+is%3Aopen+label%3A%22feedback%2Ftesters+wanted%22">{{ $t("content.thanks.contributeTestModsTitle") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://download.fo/translate">{{ $t("content.thanks.contributeTranslateTitle") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://github.com/Fabulously-Optimized/wiki/issues">{{ $t("content.thanks.contributeWikiTitle") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/labels/help%20wanted">{{ $t("content.thanks.contributeProgrammingTitle") }}</a></strong>
+    </li>
+</ul>
+</template>
+
+
 <style>
-    body { font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
-    li img { width: 1em; height: 1em; margin-right: 0.5em; }
-    a { color: blue; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+.iframe-container {
+  align-self: center;
+}
 </style>
