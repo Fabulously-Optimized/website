@@ -11,7 +11,7 @@ useSeoMeta({
 });
 
 const { data: contributorsRaw } = await useFetch(
-  "https://fabulously-meta.imb11.dev/v1/contributors"
+  "" //TODO: API URL - rehost or reimplement without API dependency
 );
 
 const contributors = computed(() => {
