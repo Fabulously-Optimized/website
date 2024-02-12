@@ -17,6 +17,8 @@
   "content.home.columned-hero.title": "your Minecraft gameplay.",
   "content.home.columned-hero.subtitle": "A simple Minecraft modpack focusing on performance and graphics enhancements.",
   "content.home.graph.subtitle": "Fabulously Optimized is <span class=\"smaller__gradient\">4x Quicker</span> than OptiFine.<br />",
+  "content.home.graph.fps": "FPS",
+  "content.home.graph.small": "Tested on AMD Ryzen 5 2600 (12) &commat; 3.400GH and NVIDIA GeForce GTX 1060 3GB running Minecraft 1.20.1, OptiFine for 1.20.1, Fabric Loader with Fabulously Optimized 5.4.1 (Singleplayer).",
   "content.home.graph.vanilla": "Vanilla Minecraft",
   "content.home.download.subtitle": "We encourage using CurseForge App, Modrinth App, Prism Launcher, MultiMC, or official Minecraft Launcher.",
   "content.home.download.title": "Download Now",
