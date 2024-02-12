@@ -53,6 +53,9 @@ console.log(languageOptionFilter.value);
       <NuxtLink to="/github" :external="true" class="side__link"
         >GitHub</NuxtLink
       >
+      <NuxtLink to="/thanks" class="side__link">{{
+        $t("navbar.links.thanks")
+      }}</NuxtLink>
       <NuxtLink to="/wiki" :external="true" class="side__link">{{
         $t("navbar.links.wiki")
       }}</NuxtLink>
