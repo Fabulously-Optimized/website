@@ -119,16 +119,6 @@ const features: any = ref([
         <p id="disclaimer-text" @click="navigateTo(`/terms`, { external: true })">{{ $t("content.home.columned-hero.disclaimer") }}</p>
       </div>
     </div>
-    <div class="video-container">
-      <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${$t(
-        'content.home.features.videoID'
-      )}`" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-  <div class="centered-hero">
-    <h1>{{ $t("content.home.features.title") }}</h1>
     <div class="column graph__container">
       <!-- <img class="dramatic-screenshot" src="/dramatic-screenshot.webp" /> -->
       <div class="graph">
@@ -162,6 +152,14 @@ const features: any = ref([
         Minecraft 1.20.1, OptiFine for 1.20.1, Fabric Loader with Fabulously
         Optimized 5.4.1 RD:8, Singleplayer, PLd</small>
     </div>
+  </div>
+  <div class="centered-hero">
+    <h1>{{ $t("content.home.features.title") }}</h1>
+    <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${$t(
+      'content.home.features.videoID'
+    )}`" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
     <div class="features">
       <div v-for=" feature  in features" class="feature-block">
         <div>
