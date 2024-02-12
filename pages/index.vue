@@ -77,11 +77,6 @@ const features: any = ref([
   {
     id: "open-development",
     icon: VersionIcon,
-    button: {
-      color: "black",
-      href: "/contributors",
-      external: false,
-    },
   },
   {
     id: "helpful-community",
