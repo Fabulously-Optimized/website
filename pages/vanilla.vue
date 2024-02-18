@@ -55,7 +55,7 @@ export default {
   <h2>{{ $t("content.vanilla.title.manual") }}</h2>
   -->
   <div class="iframe-container">
-    <iframe id="vanilla-embed" src="./vanilla.html" frameborder="0" width="50%" height="100em"></iframe>
+    <iframe id="vanilla-embed" src="./vanilla-embed.html" frameborder="0" width="50%" height="100em"></iframe>
   </div>
   <br>
   <Button color="blue" @click="navigateTo(`https://wiki.download.fo/readme/install-instructions#minecraft-launcher-vanilla`, { external: true })">
