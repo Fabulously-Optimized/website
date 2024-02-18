@@ -33,15 +33,23 @@ export default {
 
 <template>
 	<h1 id="title">{{ $t("content.vanilla.title") }}</h1>
+  <h2>{{ $t("content.vanilla.title.installer") }}</h2>
   <Button color="green" @click="updateIframeUrl">
-    <DownloadIcon />{{ $t("content.vanilla.button.latest") }}
+    <DownloadIcon />{{ $t("content.vanilla.button.windows") }}
   </Button>
+  <Button color="gray" @click="updateIframeUrl">
+    <DownloadIcon />{{ $t("content.vanilla.button.macos") }}
+  </Button>
+  <Button color="gray" @click="updateIframeUrl">
+    <DownloadIcon />{{ $t("content.vanilla.button.linux") }}
+  </Button>
+  <Button color="gray" @click="updateIframeUrl">
+    <DownloadIcon />{{ $t("content.vanilla.button.linuxManual") }}
+  </Button>
+  <h2>{{ $t("content.vanilla.title.manual") }}</h2>
   <div class="iframe-container">
-    <iframe id="vanilla-embed" src="./vanilla.html" frameborder="0" width="50%" height="500px"></iframe>
+    <iframe id="vanilla-embed" src="./vanilla.html" frameborder="0" width="50%" height="100em"></iframe>
   </div>
-  <Button color="gray" @click="navigateTo(`https://www.curseforge.com/minecraft/modpacks/fabulously-optimized/files?showAlphaFiles=show`, { external: true })">
-    <DownloadIcon />{{ $t("content.vanilla.button.older") }}
-  </Button>
   <br>
   <Button color="blue" @click="navigateTo(`https://wiki.download.fo/readme/install-instructions#minecraft-launcher-vanilla`, { external: true })">
     <DownloadIcon />{{ $t("content.vanilla.button.howto") }}

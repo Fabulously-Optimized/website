@@ -50,10 +50,10 @@
 			padding: 1em;
 		}
 	</style>
-	<div id="versionListDiv">
-		<ul id="versionsList">	
-		</ul>
-	</div>
+    <div id="versionListDiv">
+        <select id="versionsDropdown"></select>
+        <button id="goButton">⬇️</button>
+    </div>
 
 	<div id="loading-modal" class="modal">
 		<div class="modal-background"></div>
@@ -178,18 +178,31 @@
 			return 0;
 		}
 
-		function printVersionsAsHTML(versions) {
-			const versionsList = document.getElementById('versionsList');
+		function populateDropdownAndSetupButton(versions) {
+			const versionsDropdown = document.getElementById('versionsDropdown');
 
 			versions.forEach(version => {
-				const listItem = document.createElement('li');
-				const button = document.createElement('button');
-				const versionName = version.name;
-				button.textContent = versionName;
-				button.onclick = () => downloadPack(version.files[0].url); // Assuming always one file in files array
-				listItem.appendChild(button);
-				versionsList.appendChild(listItem);
+				const option = document.createElement('option');
+				option.textContent = version.name; 
+				option.value = version.files[0].url;
+				versionsDropdown.appendChild(option);
 			});
+
+			const specialOption = document.createElement('option');
+			specialOption.textContent = '4.6.1, 4.5.7, ...';
+			specialOption.value = 'CurseForge';
+			versionsDropdown.appendChild(specialOption);
+
+			// Set up the "Go" button to download the selected pack or open the URL
+			const goButton = document.getElementById('goButton');
+			goButton.onclick = () => {
+				const selectedURL = versionsDropdown.value;
+				if (selectedURL === 'CurseForge') {
+					window.open("https://www.curseforge.com/minecraft/modpacks/fabulously-optimized/files?showAlphaFiles=show", '_blank');
+				} else {
+					downloadPack(selectedURL);
+				}
+			};
 		}
 
 		const jsonURL = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
@@ -202,8 +215,7 @@
 			.then(data => {
 				if (data) {
 					let versionsToDisplay = getLatestVersionsForAllGameVersions(data);
-
-					printVersionsAsHTML(versionsToDisplay);
+					populateDropdownAndSetupButton(versionsToDisplay);
 
 					if (downloadParam === 'latest') {
 						// Download the first (newest) item
@@ -217,20 +229,11 @@
 							alert('Requested version not found');
 						}
 					}
-
-					downloadLatestButtonVanilla.addEventListener('click', () => {
-						if (versionsToDisplay.length > 0) {
-							downloadPack(versionsToDisplay[0].files[0].url);
-						} else {
-							alert('No versions available to download');
-						}
-					});
 				} else {
 					console.error('Failed to load data');
 				}
 			})
 			.catch(error => console.error('Error:', error));
-			
 	</script>
 
 	<script src="./assets/js/FileSaver.min.js"></script>
