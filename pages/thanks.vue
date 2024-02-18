@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import {
   Button,
   DownloadIcon,
@@ -13,62 +13,66 @@ import {
   UpdatedIcon,
   DiscordIcon,
 } from "omorphia";
-</script>
-<script lang="ts">
-import { ref, onMounted } from 'vue';
 
-export default {
-  setup() {
-    const projectDetails = ref([]);
+// Define projectDetails as a reactive reference
+const projectDetails = ref([]);
 
-    async function fetchProjectVersions() {
-      console.log('Fetching project versions...');
-      const response = await fetch(`https://api.modrinth.com/v2/project/1KVo5zza/version?featured=true`);
-      const versions = await response.json();
-      return versions.find(version => version.version_type === "release");
-    }
+// Fetches the latest release version of the project
+async function fetchProjectVersions() {
+  const response = await fetch(`https://api.modrinth.com/v2/project/1KVo5zza/version?featured=true`);
+  const versions = await response.json();
+  return versions.find(version => version.version_type === "release");
+}
 
-    async function fetchProjectDetails(projectIds) {
-      console.log('Fetching project details...');
-      const response = await fetch(`https://example.com/v2/projects?ids=[${projectIds.map(id => `"${id}"`).join(',')}]`);
-      return response.json();  
-    }
+// Fetches project details based on project IDs
+async function fetchProjectDetails(projectIds) {
+  const response = await fetch(`https://api.modrinth.com/v2/projects?ids=[${projectIds.map(id => `"${id}"`).join(',')}]`);
+  return response.json();
+}
 
-    async function displayProjects() {
-      console.log('Displaying projects...');
-      const version = await fetchProjectVersions();
-      if (!version || !version.dependencies) {
-        console.log('No version or dependencies found.');
-        return; // Exit if no version or dependencies found
-      }
+// Displays projects by fetching their versions and details, then sorting and filtering them
+async function displayProjects() {
+  const version = await fetchProjectVersions();
+  if (!version || !version.dependencies) return; // Exit if no version or dependencies found
+  
+  const projectIds = version.dependencies.map(dep => dep.project_id).filter(id => id);
+  let projects = await fetchProjectDetails(projectIds);
+  projects = projects
+    .filter(project => project.donation_urls && project.donation_urls.length > 0) // Filter projects with at least one donation link
+    .sort((a, b) => a.title.localeCompare(b.title)); // Sort projects by title
 
-      const projectIds = version.dependencies.map(dep => dep.project_id).filter(id => id); // Filter out falsy values
-      const projects = await fetchProjectDetails(projectIds);
+  // Transform project details for rendering
+  projectDetails.value = projects.map(project => ({
+    iconUrl: project.icon_url,
+    title: project.title,
+    donationUrls: project.donation_urls
+  }));
+}
 
-      // Sort projects by title
-      projects.sort((a, b) => a.title.localeCompare(b.title));
-
-      projectDetails.value = projects;
-      console.log('Projects updated:', projectDetails.value);
-    }
-
-    // Directly call displayProjects.
-    displayProjects().catch(console.error);
-
-    return {
-      projectDetails,
-    };
-  },
-};
+// Use onMounted to ensure displayProjects is called after the component is mounted
+onMounted(() => {
+  displayProjects().catch(console.error);
+});
 </script>
 
 <template>
-    <h1>{{ $t("content.thanks.title") }}</h1>
+<h1>{{ $t("content.thanks.title") }}</h1>
 <p>{{ $t("content.thanks.supportMessage") }}</p>
 
 <h2>{{ $t("content.thanks.modsTitle") }}</h2>
 <p>{{ $t("content.thanks.modsDescription") }}</p>
-<ul id="projects"></ul>
+<ul id="projects">
+  <li v-for="project in projectDetails" :key="project.title">
+    <img v-if="project.iconUrl" :src="project.iconUrl" :alt="`${project.title} icon`" />
+    <a v-if="project.donationUrls.length === 1" :href="project.donationUrls[0].url" target="_blank">
+      {{ project.title }}
+    </a>
+    <span v-else>
+      {{ project.title }}:
+      <a v-for="(donation, index) in project.donationUrls" :key="index" :href="donation.url" target="_blank">{{ donation.platform }}</a>
+    </span>
+  </li>
+</ul>
 <p><a href="https://download.fo/mods">{{ $t("content.thanks.modsLink") }}</a></p>
 <p>{{ $t("content.thanks.modsAutomaticListFetch") }}</p>
 
@@ -123,7 +127,8 @@ export default {
 
 
 <style>
-.iframe-container {
-  align-self: center;
-}
+body { font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
+li img { width: 1em; height: 1em; margin-right: 0.5em; }
+a { color: blue; text-decoration: none; }
+a:hover { text-decoration: underline; }
 </style>
