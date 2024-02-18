@@ -16,15 +16,8 @@
 <script lang="ts">
 export default {
   methods: {
-    updateIframeUrl() {
-      const iframe = document.getElementById('vanilla-embed');
-      if (!iframe) return; // Exit if the iframe is not found
-
-      let src = iframe.src;
-      const url = new URL(src);
-      url.searchParams.set('download', 'latest'); // Set the query parameter
-
-      iframe.src = url.toString(); // Update the iframe src
+    todo() {
+      alert("Soon!");
     }
   }
 }
@@ -33,20 +26,22 @@ export default {
 
 <template>
 	<h1 id="title">{{ $t("content.vanilla.title") }}</h1>
+  <!--
   <h2>{{ $t("content.vanilla.title.installer") }}</h2>
-  <Button color="green" @click="updateIframeUrl">
+  <Button color="green" @click="todo">
     <DownloadIcon />{{ $t("content.vanilla.button.windows") }}
   </Button>
-  <Button color="gray" @click="updateIframeUrl">
+  <Button color="gray" @click="todo">
     <DownloadIcon />{{ $t("content.vanilla.button.macos") }}
   </Button>
-  <Button color="gray" @click="updateIframeUrl">
+  <Button color="gray" @click="todo">
     <DownloadIcon />{{ $t("content.vanilla.button.linux") }}
   </Button>
-  <Button color="gray" @click="updateIframeUrl">
+  <Button color="gray" @click="todo">
     <DownloadIcon />{{ $t("content.vanilla.button.linuxManual") }}
   </Button>
   <h2>{{ $t("content.vanilla.title.manual") }}</h2>
+  -->
   <div class="iframe-container">
     <iframe id="vanilla-embed" src="./vanilla.html" frameborder="0" width="50%" height="100em"></iframe>
   </div>
