@@ -145,7 +145,7 @@ const features: any = ref([
   </div>
   <div class="centered-hero">
     <h1>{{ $t("content.home.features.title") }}</h1>
-    <iframe width="1120" height="630" :src="`https://www.youtube.com/embed/${$t(
+    <iframe width="1120" height="630" :src="`https://www.youtube-nocookie.com/embed/${$t(
       'content.home.features.videoID'
     )}`" title="YouTube video player" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
