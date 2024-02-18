@@ -111,7 +111,7 @@ const features: any = ref([
         </Button>
       </div>
       <div>
-        <p id="disclaimer-text" @click="navigateTo(`/terms`, { external: true })">{{ $t("content.home.columned-hero.disclaimer") }}</p>
+        <p id="disclaimer-text"><a href="/terms" target="_blank">{{ $t("content.home.columned-hero.disclaimer") }}</a></p>
       </div>
     </div>
     <div class="column graph__container">
@@ -191,7 +191,7 @@ const features: any = ref([
       <Button :large="true" color="gray" @click="navigateTo(`/vanilla`, { external: true })">{{ $t("content.home.columned-hero.vanilla") }}</Button>
     </div>
     <div style="margin: -1em">
-      <p id="disclaimer-text" @click="navigateTo(`/terms`, { external: true })">{{ $t("content.home.columned-hero.disclaimer") }}</p>
+      <p id="disclaimer-text"><a href="/terms" target="_blank">{{ $t("content.home.columned-hero.disclaimer") }}</a></p>
     </div>
     <!-- <DownloadSection class="download-card-fix" /> -->
   </div>
@@ -310,7 +310,7 @@ h3 {
   gap: var(--gap-md);
 }
 
-#disclaimer-text{
+#disclaimer-text, #disclaimer-text > a{
   color: gray;
   cursor: pointer;
 }
