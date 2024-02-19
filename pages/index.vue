@@ -91,12 +91,7 @@ const features: any = ref([
   /></Modal> -->
   <div class="columned-hero">
     <div class="column">
-      <h1>
-        <span class="supercharge__gradient">{{
-          $t("content.home.columned-hero.supercharge")
-        }}</span>
-        {{ $t("content.home.columned-hero.title") }}
-      </h1>
+      <h1 v-html="$t('content.home.columned-hero.title')"></h1>
       <p class="subtitle">{{ $t("content.home.columned-hero.subtitle") }}</p>
       <br />
       <div class="buttons">
