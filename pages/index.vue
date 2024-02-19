@@ -115,19 +115,19 @@ const features: any = ref([
         <div class="item">
           <p class="pretitle">Fabulously Optimized</p>
           <div class="bar" style="background-color: #f5a50f !important">
-            <p>259{{ $t("content.home.graph.fps") }}</p>
+            <p>259 {{ $t("content.home.graph.fps") }}</p>
           </div>
         </div>
         <div class="item">
           <p class="pretitle">{{ $t("content.home.graph.competitor") }}</p>
           <div class="bar">
-            <p>56{{ $t("content.home.graph.fps") }}</p>
+            <p>56 {{ $t("content.home.graph.fps") }}</p>
           </div>
         </div>
         <div class="item">
           <p class="pretitle">{{ $t("content.home.graph.vanilla") }}</p>
           <div class="bar">
-            <p>49{{ $t("content.home.graph.fps") }}</p>
+            <p>49 {{ $t("content.home.graph.fps") }}</p>
           </div>
         </div>
       </div>
