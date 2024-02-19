@@ -1,0 +1,19 @@
+{
+    "content.home.columned-hero.subtitle": "Một gói mod Minecraft đơn giản tập trung vào các cải tiến về hiệu suất và đồ họa.",
+    "content.home.features.videoID": "bb8G9X5Q_4I",
+    "feature.performance.title": "Hiệu năng",
+    "feature.optifine-parity.title": "Ngang bằng OptiFine",
+    "feature.optifine-parity.desc": "Fabulously Optimized [hỗ trợ hầu hết các tính năng của OptiFine][2], bao gồm shader, hoạ tiết được kết nối và thu phóng. Nếu gói tài nguyên của bạn ghi \"Yêu cầu OptiFine\", nó có thể cũng sẽ hoạt động ở đây. [Bạn thậm chí có thể nhận được áo choàng miễn phí của riêng mình!][3]",
+    "feature.feels-familiar.title": "Cảm thấy quen thuộc",
+    "feature.feels-familiar.desc": "Fabulously Optimized bao gồm các tính năng cho phép bạn trải nghiệm Minecraft đúng như những gì bạn nhớ về nó, bất kể bạn đã sử dụng phiên bản nào trước đây. Điều này có nghĩa là bạn có thể [sử dụng bộ điều khiển trò chơi, chơi thế giới cục bộ với bạn bè, xem các thành tựu trong một cửa sổ lớn và hơn thế nữa][4].",
+    "feature.works-anywhere.title": "Hoạt động ở mọi nơi",
+    "feature.works-anywhere.desc": "Fabulously Optimized không bao gồm mod nội dung, vì vậy bạn có thể chơi trên bất kỳ thế giới hoặc máy chủ nào. Mặc dù bạn có thể sử dụng bất kỳ trình khởi chạy (launcher) nào để chơi modpack này, [chúng tôi khuyên bạn nên và cung cấp hỗ trợ cho những launcher cụ thể mang lại trải nghiệm tốt nhất][5].",
+    "feature.up-to-date.title": "Được cập nhật thường xuyên",
+    "feature.up-to-date.desc": "Fabulously Optimized [nhận được bản cập nhật nhanh][6] và là một trong những modpack đầu tiên nâng cấp lên các phiên bản Minecraft mới hơn. [Việc cập nhật modpack thật dễ dàng][7] và nó sẽ duy trì cài đặt mod của bạn nếu có thể.",
+    "feature.built-on-fabric.title": "Được xây dựng trên Fabric",
+    "feature.built-on-fabric.desc": "Fabulously Optimized sử dụng mod loader Fabric nhẹ, nhanh và hỗ trợ nhiều mod. [Bạn có thể sử dụng modpack làm cơ sở để thêm các mod yêu thích của mình vào.][8]",
+    "feature.open-development.title": "Phát triển mở",
+    "feature.open-development.desc": "Fabulously Optimized [là nguồn mở][9] và hầu hết các mod của nó cũng vậy. Chúng tôi hoan nghênh các đề xuất của người dùng và cộng tác với các nhà phát triển bản mod để tạo ra trải nghiệm người dùng tốt hơn cho mọi người.",
+    "feature.helpful-community.title": "Cộng đồng hữu ích",
+    "feature.helpful-community.desc": "Chúng tôi có một cộng đồng ngày càng tăng gồm các thành viên thân thiện, thích thảo luận về modpack, [dịch nội dung của modpack][10] và giúp đỡ lẫn nhau. [Hãy tham gia cùng chúng tôi ngay hôm nay!][11]"
+}
