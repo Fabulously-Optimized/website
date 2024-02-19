@@ -60,7 +60,7 @@
   "content.contribute.modsTitle": "The mods",
   "content.contribute.modsDescription": "While Fabulously Optimized itself does not take direct donations, there are many mods in it that do. Here's a list of mods that take donations, click to redirect to the donation page.",
   "content.contribute.modsLink": "What do each of the mods do?",
-  "content.contribute.modsAutomaticListFetch": "Modders: this list is automatically fetched from Modrinth for the latest stable version of the modpack. All you have to do is add a donation link to your project!",
+  "content.contribute.modsAutomaticListFetch": "Developers: this list is automatically fetched from Modrinth for the latest stable version of the modpack. All you have to do is add a donation link to your project!",
   "content.contribute.modpackTitle": "The modpack",
   "content.contribute.modpackSupportWays": "There are also several ways you can support the modpack:",
   "content.contribute.modpackLaunchersTitle": "▶️ Play using the <a href=\"https://download.fo/curseforge\">CurseForge App</a> or <a href=\"https://download.fo/modrinth\">Modrinth App</a>",
