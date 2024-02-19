@@ -49,16 +49,15 @@ console.log(languageOptionFilter.value);
       <NuxtLink to="/" class="side__link">{{
         $t("navbar.links.home")
       }}</NuxtLink>
-      <!-- <NuxtLink to="/changelog" class="side__link">Changelog</NuxtLink> -->
-      <NuxtLink to="/github" :external="true" class="side__link"
-        >GitHub</NuxtLink
-      >
-      <NuxtLink to="/thanks" class="side__link">{{
-        $t("navbar.links.thanks")
-      }}</NuxtLink>
       <NuxtLink to="/wiki" :external="true" class="side__link">{{
         $t("navbar.links.wiki")
       }}</NuxtLink>
+      <NuxtLink to="/curseforge" class="side__link">CurseForge</NuxtLink>
+      <NuxtLink to="/modrinth" class="side__link">Modrinth</NuxtLink>
+      <NuxtLink to="/contribute" class="side__link">{{
+        $t("navbar.links.contribute")
+      }}</NuxtLink>
+
     </div>
     <div class="side__buttons no__mobile">
       <Button iconOnly class="button__rounded_icon" @click="theme = !theme"
