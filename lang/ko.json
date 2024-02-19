@@ -1,0 +1,20 @@
+{
+    "content.home.columned-hero.subtitle": "성능과 그래픽 향상에 초점을 맞춘 간단한 Minecraft 모드팩.",
+    "content.home.features.videoID": "bb8G9X5Q_4I",
+    "feature.performance.title": "성능 개선",
+    "feature.performance.desc": "Fabulously Optimized는 Sodium, Lithium 등 여러 [최신 성능 개선 모드][1] 덕분에 Optifine보다 더 빠릅니다. 이 모드들은 월드를 안전히 지키고 어떤 기기에서나 눈에 띄는 속도 개선을 제공하기 위해 신중히 선택되어졌습니다.",
+    "feature.optifine-parity.title": "OptiFine과 호환",
+    "feature.optifine-parity.desc": "Fabulously Optimized는 셰이더를 포함한 연결된 텍스쳐, 화면 확대 등 [거의 모든 Optifine의 기능][2]을 지원합니다. 만약 당신의 리소스 팩이 \"Optifine이 필요합니다.\"라고 명시되어있으면 거의 대부분 잘 작동할 것이며, [자신만의 무료 망토도 가질 수 있습니다!][3]",
+    "feature.feels-familiar.title": "익숙한 느낌",
+    "feature.feels-familiar.desc": "Fabulously Optimized에는 이전에 사용했던 버전과 상관 없이 기억하는 그대로 Minecraft를 경험할 수 있는 기능이 포함되어 있습니다. 즉, [게임 컨트롤러를 사용하고, 친구와 함께 로컬 월드를 플레이하고, 큰 화면에서 발전 과제를 확인하는 등 다양한 기능을 사용할 수 있음을 의미합니다][4].",
+    "feature.works-anywhere.title": "어디서나 사용 가능",
+    "feature.works-anywhere.desc": "Fabulously Optimized는 콘텐츠 모드가 없어, 모든 월드 및 서버에서 작동합니다. 모든 런처를 사용해서 팩을 플레이할 수도 있지만, [저희는 최상의 경험을 제공하는 특정 런처를 권장 및 지원합니다][5].",
+    "feature.up-to-date.title": "빠른 업데이트",
+    "feature.up-to-date.desc": "Fabulously Optimized는 [빠른 업데이트][6]를 제공하고 최신 Minecraft 버전으로 업그레이드할 수 있는 최초의 모드팩 중 하나입니다. [모드팩 업데이트는 간단하며][7] 가능한 경우 모드 설정을 보존합니다.",
+    "feature.built-on-fabric.title": "Fabric 기반",
+    "feature.built-on-fabric.desc": "Fabulously Optimized는 가볍고, 빠르며 많은 모드를 지원하는 Fabric 모드 로더를 사용합니다. [모드팩을 기본으로 사용하여 좋아하는 모드를 추가할 수도 있습니다.][8]",
+    "feature.open-development.title": "오픈소스",
+    "feature.open-development.desc": "Fablously Optimized는 [오픈소스][9]이며, 또한 대부분의 모드도 마찬가지입니다. 저희는 언제나 플레이어 분들의 제안을 환영하며, 모드 개발자 분들과 협력해 모두에게 더 나은 사용자 경험을 제공할 수 있도록 노력하고 있습니다.",
+    "feature.helpful-community.title": "열린 커뮤니티 (영어)",
+    "feature.helpful-community.desc": "저희는 모드팩에 대해 토론을 즐기고, [콘텐츠를 번역하고][10], 서로를 도와주는 친근한 멤버들로 구성되어있는 성장하는 커뮤니티를 가지고 있습니다. [지금 바로 참여하세요!][11]"
+}
