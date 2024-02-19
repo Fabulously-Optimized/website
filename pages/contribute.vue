@@ -56,11 +56,11 @@ onMounted(() => {
 </script>
 
 <template>
-<h1>{{ $t("content.thanks.title") }}</h1>
-<p>{{ $t("content.thanks.supportMessage") }}</p>
+<h1>{{ $t("content.contribute.title") }}</h1>
+<p>{{ $t("content.contribute.supportMessage") }}</p>
 
-<h2>{{ $t("content.thanks.modsTitle") }}</h2>
-<p>{{ $t("content.thanks.modsDescription") }}</p>
+<h2>{{ $t("content.contribute.modsTitle") }}</h2>
+<p>{{ $t("content.contribute.modsDescription") }}</p>
 <ul id="projects">
   <li v-for="project in projectDetails" :key="project.title">
     <img v-if="project.iconUrl" :src="project.iconUrl" :alt="`${project.title} icon`" />
@@ -73,54 +73,57 @@ onMounted(() => {
     </span>
   </li>
 </ul>
-<p><a href="https://download.fo/mods">{{ $t("content.thanks.modsLink") }}</a></p>
-<p>{{ $t("content.thanks.modsAutomaticListFetch") }}</p>
+<p><a href="https://download.fo/mods">{{ $t("content.contribute.modsLink") }}</a></p>
+<p>{{ $t("content.contribute.modsAutomaticListFetch") }}</p>
 
-<h2>{{ $t("content.thanks.modpackTitle") }}</h2>
-<p>{{ $t("content.thanks.modpackSupportWays") }}</p>
+<h2>{{ $t("content.contribute.modpackTitle") }}</h2>
+<p>{{ $t("content.contribute.modpackSupportWays") }}</p>
 
 <ul>
     <li>
-        <strong>{{ $t("content.thanks.modpackLaunchersTitle") }} <a href="https://download.fo/curseforge">{{ $t("content.thanks.modpackLaunchersCurseforge") }}</a> {{ $t("content.thanks.modpackLaunchersOr") }} <a href="https://download.fo/modrinth">{{ $t("content.thanks.modpackLaunchersModrinth") }}</a></strong>
+        <strong>{{ $t("content.contribute.modpackLaunchersTitle") }} <a href="https://download.fo/curseforge">{{ $t("content.contribute.modpackLaunchersCurseforge") }}</a> {{ $t("content.contribute.modpackLaunchersOr") }} <a href="https://download.fo/modrinth">{{ $t("content.contribute.modpackLaunchersModrinth") }}</a></strong>
         <ul>
-            <li>{{ $t("content.thanks.modpackLaunchersMoneyInfo") }}</li>
-            <li><a href="https://download.fo/install">{{ $t("content.thanks.modpackLaunchersInstallInstructions") }}</a></li>
+            <li>{{ $t("content.contribute.modpackLaunchersMoneyInfo") }}</li>
+            <li><a href="https://download.fo/install">{{ $t("content.contribute.modpackLaunchersInstallInstructions") }}</a></li>
         </ul>
     </li>
     <li>
-        <strong><a href="https://download.fo/rate">{{ $t("content.thanks.modpackAltToHeartTitle") }}</a></strong>
+        <strong><a href="https://download.fo/rate">{{ $t("content.contribute.modpackAltToHeartTitle") }}</a></strong>
         <ul>
-            <li>{{ $t("content.thanks.modpackAltToHeartSignupInfo") }}</li>
+            <li>{{ $t("content.contribute.modpackAltToHeartSignupInfo") }}</li>
         </ul>
     </li>
     <li>
-        <strong><a href="https://wiki.download.fo/readme/free-cape">{{ $t("content.thanks.modpackFreeCapeTitle") }}</a></strong>
+        <strong><a href="https://wiki.download.fo/readme/free-cape">{{ $t("content.contribute.modpackFreeCapeTitle") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://docs.modrinth.com/docs/details/ads/#browser-extensions">{{ $t("content.thanks.modpackAdBlockerTitle") }}</a> {{ $t("content.thanks.modpackAdBlockerAnd") }} <a href="https://modrinth.com/user/robotkoer">{{ $t("content.thanks.modpackAdBlockerCheckOutProjects") }}</a></strong>
+        <strong><a href="https://docs.modrinth.com/docs/details/ads/#browser-extensions">{{ $t("content.contribute.modpackAdBlockerTitle") }}</a> {{ $t("content.contribute.modpackAdBlockerAnd") }} <a href="https://modrinth.com/user/robotkoer">{{ $t("content.contribute.modpackAdBlockerCheckOutProjects") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://download.fo/host">{{ $t("content.thanks.modpackMinecraftServer") }}</a></strong>
+        <strong><a href="https://download.fo/host">{{ $t("content.contribute.modpackMinecraftServer") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://download.fo">{{ $t("content.thanks.modpackShare") }}</a></strong>
+        <strong><a href="https://download.fo">{{ $t("content.contribute.modpackShare") }}</a></strong>
     </li>
 </ul>
 
-<h2>{{ $t("content.thanks.contributeTitle") }}</h2>
-<p>{{ $t("content.thanks.contributeAdditionalSupportMessage") }}</p>
+<h2>{{ $t("content.contribute.contributeTitle") }}</h2>
+<p>{{ $t("content.contribute.contributeAdditionalSupportMessage") }}</p>
 <ul>
     <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/issues?q=is%3Aissue+is%3Aopen+label%3A%22feedback%2Ftesters+wanted%22">{{ $t("content.thanks.contributeTestModsTitle") }}</a></strong>
+        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/issues?q=is%3Aissue+is%3Aopen+label%3A%22feedback%2Ftesters+wanted%22">{{ $t("content.contribute.contributeTestModsTitle") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://download.fo/translate">{{ $t("content.thanks.contributeTranslateTitle") }}</a></strong>
+        <strong><a href="https://download.fo/translate">{{ $t("content.contribute.contributeTranslateTitle") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/wiki/issues">{{ $t("content.thanks.contributeWikiTitle") }}</a></strong>
+        <strong><a href="https://github.com/Fabulously-Optimized/wiki/issues">{{ $t("content.contribute.contributeWikiTitle") }}</a></strong>
     </li>
     <li>
-        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/labels/help%20wanted">{{ $t("content.thanks.contributeProgrammingTitle") }}</a></strong>
+        <strong><a href="https://github.com/Fabulously-Optimized/fabulously-optimized/labels/help%20wanted">{{ $t("content.contribute.contributeProgrammingTitle") }}</a></strong>
+    </li>
+    <li>
+        <strong><a href="https://download.fo/discord">{{ $t("content.contribute.contributeDiscordTitle") }}</a></strong>
     </li>
 </ul>
 </template>

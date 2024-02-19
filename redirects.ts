@@ -13,6 +13,7 @@ export const redirects = [
   ["/rate", "https://alternativeto.net/software/fabulously-optimized/about/"],
   ["/terms", "https://wiki.download.fo/readme/disclaimers"],
   ["/translate", "https://wiki.download.fo/readme/language-support"],
+  ["/thanks", "/contribute"],
   ["/update", "https://wiki.download.fo/readme/update-instructions"],
   ["/wiki", "https://wiki.download.fo"]
 ]
