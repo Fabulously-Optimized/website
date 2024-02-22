@@ -1,5 +1,7 @@
 # Fabulously Web
 
+**If you see this page on download.fo, [please tell us on Discord](https://download.fo/discord).**
+
 This website is designed in Nuxt.js and is used to display information about the modpack and its mods.
 
 It uses Omorphia - Modrinth's design system.
