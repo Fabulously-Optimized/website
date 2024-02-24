@@ -35,8 +35,6 @@ const languageOptionFilter = computed(() => {
     hoverFilledOnly: false,
   }));
 });
-
-console.log(languageOptionFilter.value);
 </script>
 
 <template>
