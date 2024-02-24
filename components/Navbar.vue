@@ -101,11 +101,48 @@ console.log(languageOptionFilter.value);
       <NuxtLink to="/" class="side__link">{{
         $t("navbar.links.home")
       }}</NuxtLink>
-      <!-- <NuxtLink to="/changelog" class="side__link">Changelog</NuxtLink> -->
-      <NuxtLink to="/github" class="side__link">GitHub</NuxtLink>
-      <NuxtLink to="/wiki" class="side__link">{{
+      <NuxtLink to="/wiki" :external="true" class="side__link">{{
         $t("navbar.links.wiki")
       }}</NuxtLink>
+      <NuxtLink to="/curseforge" :external="true" class="side__link">CurseForge</NuxtLink>
+      <NuxtLink to="/modrinth" :external="true" class="side__link">Modrinth</NuxtLink>
+      <NuxtLink to="/contribute" class="side__link">{{
+        $t("navbar.links.contribute")
+      }}</NuxtLink>
+    </div>
+    <div class="side__buttons">
+      <Button iconOnly class="button__rounded_icon" @click="theme = !theme"
+        ><MoonIcon v-if="!theme" /><SunIcon v-else
+      /></Button>
+      <OverflowMenu
+        class="btn icon-only button__rounded_icon"
+        style="background: none; box-shadow: none !important"
+        :options="[
+          {
+            id: 'language',
+            color: 'primary',
+            action: () => {
+              navigateTo('/translate', {
+                external: true,
+                open: {
+                  target: '_blank',
+                },
+              });
+            },
+            hoverFilledOnly: false,
+          },
+          { divider: true },
+          ...languageOptionFilter,
+        ]"
+      >
+        <LanguagesIcon />
+        <template #language
+          ><LanguagesIcon />{{ $t("navbar.action.language") }}</template
+        >
+        <template v-for="_locale of availableLocales" v-slot:[_locale.code]>{{
+          _locale.name
+        }}</template>
+      </OverflowMenu>
     </div>
   </Card>
 </template>
@@ -200,6 +237,7 @@ console.log(languageOptionFilter.value);
   left: calc(var(--gap-xl) * -4);
   flex-direction: row;
   gap: var(--gap-xl);
+  flex-wrap: wrap;
 }
 
 .side__profile {
