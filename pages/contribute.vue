@@ -132,6 +132,6 @@ onMounted(() => {
 <style>
 body { font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
 li img { width: 1em; height: 1em; margin-right: 0.5em; }
-a { color: blue; text-decoration: none; }
+a { color: var(--color-brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 </style>
