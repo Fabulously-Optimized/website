@@ -52,8 +52,8 @@ console.log(languageOptionFilter.value);
       <NuxtLink to="/wiki" :external="true" class="side__link">{{
         $t("navbar.links.wiki")
       }}</NuxtLink>
-      <NuxtLink to="/curseforge" class="side__link">CurseForge</NuxtLink>
-      <NuxtLink to="/modrinth" class="side__link">Modrinth</NuxtLink>
+      <NuxtLink to="/curseforge" :external="true" class="side__link">CurseForge</NuxtLink>
+      <NuxtLink to="/modrinth" :external="true" class="side__link">Modrinth</NuxtLink>
       <NuxtLink to="/contribute" class="side__link">{{
         $t("navbar.links.contribute")
       }}</NuxtLink>
