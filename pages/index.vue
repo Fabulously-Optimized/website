@@ -88,7 +88,7 @@ const features: any = ref([
 <template>
   <div class="columned-hero">
     <div class="column">
-      <h1 v-html="$t('content.home.columned-hero.title')"></h1>
+      <h1 id="title-with-gradient" v-html="$t('content.home.columned-hero.title')"></h1>
       <p class="subtitle">{{ $t("content.home.columned-hero.subtitle") }}</p>
       <br />
       <div class="buttons">
@@ -268,6 +268,7 @@ h3 {
 // On mobile, hide graph
 @media (max-width: 999px) {
   .columned-hero {
+    display: wrap;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     margin-bottom: 0 !important;

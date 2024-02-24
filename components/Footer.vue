@@ -51,7 +51,6 @@ import { Avatar } from "omorphia";
   background-color: var(--color-raised-bg);
   color: var(--color-base);
   padding: 3rem;
-  margin-top: 5rem;
   margin-bottom: 0rem;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
