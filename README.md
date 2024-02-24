@@ -18,3 +18,8 @@ pnpm dev
 ## Deployment
 
 The website is automatically deployed to GitHub Pages when a commit is pushed to the `master` branch.
+
+
+## Credits
+
+The website was developed by [IMB11](https://imb11.dev/) with additions from Fabulously Optimized contributors.
