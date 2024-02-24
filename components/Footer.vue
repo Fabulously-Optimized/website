@@ -5,9 +5,7 @@ import { Avatar } from "omorphia";
 <template>
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>
-        {{ $t("footer.legal_notice") }}
-      </p>
+      <p v-html="$t('footer.legal_notice')"></p>
       <div class="link-rows">
         <div class="link-row">
           <h4>{{ $t("footer.header.contribute") }}</h4>
