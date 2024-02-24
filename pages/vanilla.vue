@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  import {
+import { onMounted } from 'vue';
+import {
   Button,
   DownloadIcon,
   ClientIcon,
@@ -12,29 +13,32 @@
   UpdatedIcon,
   DiscordIcon,
 } from "omorphia";
-</script>
-<script lang="ts">
-export default {
-  methods: {
-    todo() {
-      alert("Soon!");
-    },
-    updateIframeUrl() {
-      const iframe = document.getElementById('vanilla-embed') as HTMLIFrameElement;
-      if (!iframe) return; // Exit if the iframe is not found
 
-      const currentSearchParams = new URLSearchParams(window.location.search);
-      const iframeUrl = new URL(iframe.src, window.location.origin);
-      currentSearchParams.forEach((value, key) => {
-        iframeUrl.searchParams.set(key, value); // Append or overwrite existing search parameters
-      });
+const updateIframeUrl = () => {
+  const iframe = document.getElementById('vanilla-embed') as HTMLIFrameElement;
+  if (!iframe) return; // Exit if the iframe is not found
 
-      iframe.src = iframeUrl.toString(); // Update the iframe src with new parameters
-    }
+  const currentSearchParams = new URLSearchParams(window.location.search);
+  const iframeUrl = new URL(iframe.src, window.location.origin);
+  currentSearchParams.forEach((value, key) => {
+    iframeUrl.searchParams.set(key, value); // Append or overwrite existing search parameters
+  });
+
+  iframe.src = iframeUrl.toString(); // Update the iframe src with new parameters
+};
+
+const todo = () => {
+  alert("Soon!");
+};
+
+onMounted(() => {
+  try {
+    updateIframeUrl();
+  } catch (error) {
+    console.error(error);
   }
-}
+});
 </script>
-  
 
 <template>
 	<h1 id="title">{{ $t("content.vanilla.title") }}</h1>
