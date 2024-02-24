@@ -132,7 +132,7 @@ const features: any = ref([
       <div>
         <h3 v-html="$t('content.home.graph.subtitle')"></h3>
       </div>
-      <small>{{ $t("content.home.graph.small") }}</small>
+      <small v-html="$t('content.home.graph.small')"></small>
     </div>
   </div>
   <div class="centered-hero">
