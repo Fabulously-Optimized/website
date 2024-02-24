@@ -19,7 +19,7 @@
     "vue-router": "^4.3.0"
   },
   "dependencies": {
-    "omorphia": "^0.9.5",
+    "omorphia": "^0.7.3",
     "sass": "^1.71.1"
   }
 }

@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   omorphia:
-    specifier: ^0.9.5
-    version: 0.9.5(vue@3.4.19)
+    specifier: ^0.7.3
+    version: 0.7.3(vue@3.4.19)
   sass:
     specifier: ^1.71.1
     version: 1.71.1
@@ -5174,8 +5174,8 @@ packages:
     resolution: {integrity: sha512-zuHHiGTYTA1sYJ/wZN+t5HKZaH23i4yI1HMwbuXm24Nid7Dv0KcuRlKoNKS9UNfAVSBlnGLcuQrnOKWOZoEGaw==}
     dev: true
 
-  /omorphia@0.9.5(vue@3.4.19):
-    resolution: {integrity: sha512-Mrw2EAHldA+3eGQxzBOX0YVd/gqkYjmk4yn2Mv+H40t7dLWXXMR2x5MRKNelLgMiHbDm//f1bE/h+VpbTQuk9Q==}
+  /omorphia@0.7.3(vue@3.4.19):
+    resolution: {integrity: sha512-Xk9o3xk/rFuZeR0LLoJNbOEvnQjAh6wOTZrksgCDAVuX30cSnpuihI9lsZNlH+4V1TXOB5FpVSHBEA/+LGzwHQ==}
     peerDependencies:
       vue: ^3.3.4
     dependencies:
