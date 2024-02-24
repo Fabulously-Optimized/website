@@ -86,12 +86,9 @@ const features: any = ref([
 </script>
 
 <template>
-  <!-- <Modal class="download_modal" header="Download" ref="download_modal"
-    ><DownloadSection
-  /></Modal> -->
   <div class="columned-hero">
     <div class="column">
-      <h1 v-html="$t('content.home.columned-hero.title')"></h1>
+      <h1 id="title-with-gradient" v-html="$t('content.home.columned-hero.title')"></h1>
       <p class="subtitle">{{ $t("content.home.columned-hero.subtitle") }}</p>
       <br />
       <div class="buttons">
@@ -271,6 +268,7 @@ h3 {
 // On mobile, hide graph
 @media (max-width: 999px) {
   .columned-hero {
+    display: wrap;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     margin-bottom: 0 !important;
@@ -303,6 +301,7 @@ h3 {
   display: flex;
   flex-direction: row;
   gap: var(--gap-md);
+  flex-wrap: wrap;
 }
 
 #disclaimer-text, #disclaimer-text > a{
