@@ -86,9 +86,6 @@ const features: any = ref([
 </script>
 
 <template>
-  <!-- <Modal class="download_modal" header="Download" ref="download_modal"
-    ><DownloadSection
-  /></Modal> -->
   <div class="columned-hero">
     <div class="column">
       <h1 v-html="$t('content.home.columned-hero.title')"></h1>
@@ -303,6 +300,7 @@ h3 {
   display: flex;
   flex-direction: row;
   gap: var(--gap-md);
+  flex-wrap: wrap;
 }
 
 #disclaimer-text, #disclaimer-text > a{
