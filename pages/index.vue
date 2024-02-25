@@ -132,7 +132,7 @@ const features: any = ref([
       <div>
         <h3 v-html="$t('content.home.graph.subtitle')"></h3>
       </div>
-      <small v-html="$t('content.home.graph.small')"></small>
+      <p id="graph_disclaimer" v-html="$t('content.home.graph.small')"></p>
     </div>
   </div>
   <div class="centered-hero">
@@ -302,6 +302,10 @@ h3 {
   flex-direction: row;
   gap: var(--gap-md);
   flex-wrap: wrap;
+}
+
+#graph_disclaimer {
+  font-size: 0.6em;
 }
 
 #disclaimer-text, #disclaimer-text > a{
