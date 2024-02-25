@@ -66,6 +66,8 @@
   "content.contribute.modpackTitle": "The modpack",
   "content.contribute.modpackSupportWays": "There are also several ways you can support the modpack:",
   "content.contribute.modpackLaunchersTitle": "▶️ Play using the {0} or {1}",
+  "content.contribute.modpackLaunchersTitle.curseforge": "CurseForge App",
+  "content.contribute.modpackLaunchersTitle.modrinth": "Modrinth App",
   "content.contribute.modpackLaunchersMoneyInfo": "Using either of these launchers gives the pack and mod devs money, other launchers currently do not.",
   "content.contribute.modpackLaunchersInstallInstructions": "How to install?",
   "content.contribute.modpackAltToHeartTitle": "❤️ Heart and comment on AlternativeTo",

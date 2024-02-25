@@ -82,8 +82,8 @@ onMounted(() => {
 <ul>
     <li>
         <i18n-t keypath="content.contribute.modpackLaunchersTitle" tag="strong">
-          <a href="https://download.fo/curseforge">CurseForge App</a>
-          <a href="https://download.fo/modrinth">Modrinth App</a>
+          <a href="https://download.fo/curseforge">{{ $t("content.contribute.modpackLaunchersTitle.curseforge") }}</a>
+          <a href="https://download.fo/modrinth">{{ $t("content.contribute.modpackLaunchersTitle.modrinth") }}</a>
         </i18n-t>
         <ul>
             <li>{{ $t("content.contribute.modpackLaunchersMoneyInfo") }}</li>
