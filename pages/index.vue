@@ -88,7 +88,9 @@ const features: any = ref([
 <template>
   <div class="columned-hero">
     <div class="column">
-      <h1 id="title-with-gradient" v-html="$t('content.home.columned-hero.title')"></h1>
+      <i18n-t keypath="content.home.columned-hero.title" tag="h1" id="title-with-gradient">
+        <span class="supercharge__gradient">{{ $t("content.home.columned-hero.title.supercharge") }}</span>
+      </i18n-t>
       <p class="subtitle">{{ $t("content.home.columned-hero.subtitle") }}</p>
       <br />
       <div class="buttons">
@@ -130,9 +132,13 @@ const features: any = ref([
       </div>
       <br />
       <div>
-        <h3 v-html="$t('content.home.graph.subtitle')"></h3>
+        <i18n-t keypath="content.home.graph.subtitle" tag="h3">
+          <span class="supercharge__gradient">{{ $t("content.home.graph.subtitle.quicker") }}</span>
+        </i18n-t>
       </div>
-      <small v-html="$t('content.home.graph.small')"></small>
+       <i18n-t keypath="content.home.graph.small" tag="p" id="graph_disclaimer">
+          &commat;
+        </i18n-t>
     </div>
   </div>
   <div class="centered-hero">
@@ -302,6 +308,10 @@ h3 {
   flex-direction: row;
   gap: var(--gap-md);
   flex-wrap: wrap;
+}
+
+#graph_disclaimer {
+  font-size: 0.6em;
 }
 
 #disclaimer-text, #disclaimer-text > a{

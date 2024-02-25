@@ -5,7 +5,9 @@ import { Avatar } from "omorphia";
 <template>
   <footer class="footer">
     <div class="content has-text-centered">
-      <p v-html="$t('footer.legal_notice')"></p>
+      <i18n-t keypath="footer.legal_notice" tag="p">
+        <a href="https://imb11.dev/" target="_blank">IMB11</a>
+      </i18n-t>
       <div class="link-rows">
         <div class="link-row">
           <h4>{{ $t("footer.header.contribute") }}</h4>
