@@ -10,7 +10,7 @@
   "footer.links.translate": "翻譯",
   "footer.links.contribute": "贊助和更多",
   "footer.links.vanilla": "手動下載",
-  "footer.legal_notice": "Fabulously Optimized 與 Mojang Studios 或 Microsoft 無關。",
+  "footer.legal_notice": "本網站由 <a href=\"https://imb11.dev/\">IMB11</a> 開發，並由 Fabulously Optimized 貢獻者做了補充。與 Mojang Studios 或 Microsoft 無關。",
   "content.home.columned-hero.vanilla": "手動下載",
   "content.home.columned-hero.disclaimer": "透過下載 Fabulously Optimized，即表示您已詳讀並同意了免責聲明。",
   "content.contributors": "貢獻者",
