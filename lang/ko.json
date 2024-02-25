@@ -19,7 +19,7 @@
   "content.home.graph.subtitle.quicker": "5베 더 빠릅니다",
   "content.home.graph.subtitle": "Fabulously Optimized는 바닐라 Minecraft보다 {0}.",
   "content.home.graph.fps": "FPS",
-  "content.home.graph.small": "AMD Ryzen 5 2600 (12) {0} 3.4GHz 및 NVIDIA GeForce GTX 1060 3GB에서 1.20.1 싱글플레이 상태로 바닐라, 유명 최적화 중점 클라이언트 및 Fabulously Optimized 5.4.1로 테스트 되었습니다.",
+  "content.home.graph.small": "AMD Ryzen 5 2600 (12) {0} 3.4GHz 및 NVIDIA GeForce GTX 1060 3GB에서 1.20.1 싱글플레이 상태로 각각 바닐라, 유명 최적화 클라이언트 및 Fabulously Optimized 5.4.1로 테스트 되었습니다.",
   "content.home.graph.competitor": "유명 클라이언트",
   "content.home.graph.vanilla": "바닐라 마인크래프트",
   "content.home.download.subtitle": "Modrinth App, Prism Launcher, CurseForge App, MultiMC 또는 공식 런처를 사용하는 것을 권장합니다.",
