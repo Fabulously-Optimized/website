@@ -51,7 +51,7 @@ export default defineNuxtConfig({
       // If no locale for the browsers locale is a match, use this one as a fallback
       fallbackLocale: 'en',
     },
-    lazy: false,
+    lazy: true,
     strategy: 'no_prefix',
     langDir: 'lang',
     defaultLocale: 'en'
