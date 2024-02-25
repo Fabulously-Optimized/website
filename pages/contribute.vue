@@ -81,7 +81,10 @@ onMounted(() => {
 
 <ul>
     <li>
-        <strong v-html="$t('content.contribute.modpackLaunchersTitle')"></strong>
+        <i18n-t keypath="content.contribute.modpackLaunchersTitle" tag="strong">
+          <a href="https://download.fo/curseforge">CurseForge App</a>
+          <a href="https://download.fo/modrinth">Modrinth App</a>
+        </i18n-t>
         <ul>
             <li>{{ $t("content.contribute.modpackLaunchersMoneyInfo") }}</li>
             <li><a href="https://download.fo/install">{{ $t("content.contribute.modpackLaunchersInstallInstructions") }}</a></li>
@@ -97,7 +100,10 @@ onMounted(() => {
         <strong><a href="https://wiki.download.fo/readme/free-cape">{{ $t("content.contribute.modpackFreeCapeTitle") }}</a></strong>
     </li>
     <li>
-        <strong v-html="$t('content.contribute.modpackAdBlockerTitle')"></strong>
+         <i18n-t keypath="content.contribute.modpackAdBlockerTitle" tag="strong">
+          <a href="https://docs.modrinth.com/docs/details/ads/#browser-extensions">{{ $t("content.contribute.modpackAdBlockerTitle.adblocker") }}</a>
+          <a href="https://modrinth.com/user/robotkoer">{{ $t("content.contribute.modpackAdBlockerTitle.projects") }}</a>
+        </i18n-t>
     </li>
     <li>
         <strong><a href="https://download.fo/host">{{ $t("content.contribute.modpackMinecraftServer") }}</a></strong>
