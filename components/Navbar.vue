@@ -107,8 +107,7 @@ const languageOptionFilter = computed(() => {
       <NuxtLink to="/contribute" class="side__link">{{
         $t("navbar.links.contribute")
       }}</NuxtLink>
-    </div>
-    <div class="side__buttons">
+      <span class="side__buttons">
       <Button iconOnly class="button__rounded_icon" @click="theme = !theme"
         ><MoonIcon v-if="!theme" /><SunIcon v-else
       /></Button>
@@ -141,6 +140,7 @@ const languageOptionFilter = computed(() => {
           _locale.name
         }}</template>
       </OverflowMenu>
+    </span>
     </div>
   </Card>
 </template>
@@ -169,6 +169,10 @@ const languageOptionFilter = computed(() => {
     margin: auto;
     padding-left: auto;
     font-size: 5cqw;
+  }
+  
+  .side__buttons {
+    margin-top: -0.8em !important;
   }
 }
 
