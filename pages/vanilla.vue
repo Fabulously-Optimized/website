@@ -3,15 +3,7 @@ import { onMounted } from 'vue';
 import {
   Button,
   DownloadIcon,
-  ClientIcon,
-  UsersIcon,
-  ChartIcon,
-  LightBulbIcon,
-  VersionIcon,
-  PaintBrushIcon,
-  renderHighlightedString,
-  UpdatedIcon,
-  DiscordIcon,
+  WikiIcon
 } from "omorphia";
 
 const updateIframeUrl = () => {
@@ -63,7 +55,7 @@ onMounted(() => {
   </div>
   <br>
   <Button color="blue" @click="navigateTo(`https://wiki.download.fo/readme/install-instructions#minecraft-launcher-vanilla`, { external: true })">
-    <DownloadIcon />{{ $t("content.vanilla.button.howto") }}
+    <WikiIcon />{{ $t("content.vanilla.button.howto") }}
   </Button> 
 		<p><b>{{ $t("content.vanilla.button.disclaimer.important") }}</b> {{ $t("content.vanilla.button.disclaimer.text") }}</p>
 </template>
