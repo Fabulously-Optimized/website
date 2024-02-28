@@ -1,18 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import {
-  Button,
-  DownloadIcon,
-  ClientIcon,
-  UsersIcon,
-  ChartIcon,
-  LightBulbIcon,
-  VersionIcon,
-  PaintBrushIcon,
-  renderHighlightedString,
-  UpdatedIcon,
-  DiscordIcon,
-} from "omorphia";
 
 // Define projectDetails as a reactive reference
 const projectDetails = ref([]);
