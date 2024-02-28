@@ -29,7 +29,7 @@
   "feature.performance.title": "Performant",
   "feature.performance.desc": "Fabulously Optimized est rapide que les clients alternatifs, grâce à des [mods modernes de performances][1] comme Sodium, Lithium et d'autres. Les mods inclus ont été soigneusement sélectionnés pour être sûrs et améliorer considérablement la vitesse sur n'importe quel appareil.",
   "feature.optifine-parity.title": "Parité avec OptiFine",
-  "feature.optifine-parity.desc": "Fabulously Optimized [supporte la majorité des fonctionnalités d'OptiFine][2], dont les shaders, les textures connectées et le zoom. Si vôtre pack de ressource indique \"OptiFine requis\", il fonctionnera probablement aussi avec Fabulously Optimized.[Vous pouvez même obtenir une cape gratuite !][3]",
+  "feature.optifine-parity.desc": "Fabulously Optimized [supporte la majorité des fonctionnalités d'OptiFine][2], dont les shaders, les textures connectées et le zoom. Si vôtre pack de ressource indique \"OptiFine requis\", il fonctionnera probablement aussi avec Fabulously Optimized. [Vous pouvez même obtenir une cape gratuite !][3]",
   "feature.feels-familiar.title": "Parait familier",
   "feature.feels-familiar.desc": "Fabulously Optimized inclus des fonctionnalités qui vous permettent de jouer à Minecraft comme vous l'avait toujours fait, peu importe la version que vous utilisiez avant. Autrement dit, vous pouvez [utiliser des manettes, jouer sur en local avec des amis, voir les succès dans une grande fenêtre, et bien plus][4].",
   "feature.works-anywhere.title": "Compatible et universel",
