@@ -11,6 +11,7 @@ export const redirects = [
   ["/minecraft", "https://punktid.com/minecraft-java-bedrock?ref=robotkoer"],
   ["/modrinth", "https://modrinth.com/modpack/fabulously-optimized"],
   ["/mods", "https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#included-mods"],
+  ["mrpack-to-zip", "https://fabulously-optimized.github.io/mrpack-to-zip/"]
   ["/rate", "https://alternativeto.net/software/fabulously-optimized/about/"],
   ["/terms", "https://wiki.download.fo/readme/disclaimers"],
   ["/translate", "https://wiki.download.fo/readme/language-support"],
