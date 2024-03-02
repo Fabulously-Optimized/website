@@ -9,6 +9,9 @@ on:
 concurrency: preview-${{ github.ref }}
 jobs:
   deploy-preview:
+    permissions:
+      pages: write
+      id-token: write
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
@@ -20,10 +23,12 @@ jobs:
         with:
           node-version: "18"
           check-latest: true
-      - name: Install and Build
+      - name: Install and Build using pnpm
         run: |
           pnpm install
           pnpm run build
+        env:
+          NITRO_PRESET: github_pages
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1
         with:
