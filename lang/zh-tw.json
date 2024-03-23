@@ -50,7 +50,7 @@
   "content.contribute.title": "貢獻給 Fabulously Optimized",
   "content.contribute.supportMessage": "您喜歡這個模組包並想要支持它嗎？謝謝您！",
   "content.contribute.modsTitle": "模組",
-  "content.contribute.modsDescription": "雖然 Fabulously Optimized 本身不接受直接贊助，但其中許多模組卻有這樣的功能。下列是一些接受贊助的模組清單，點擊以重新導向到贊助頁面。",
+  "content.contribute.modsDescription": "雖然 Fabulously Optimized 本身不接受直接贊助，但其中許多模組卻有這樣的功能。下列是一些接受贊助的模組清單，點選以重新導向到贊助頁面。",
   "content.contribute.modsLink": "每個模組的功能是什麼？",
   "content.contribute.modsAutomaticListFetch": "開發人員們：這個清單是自動從 Modrinth 取得的，用於模組包的最新穩定版本。您只需要將贊助連結加入到您的專案中！",
   "content.contribute.modpackTitle": "模組包",
