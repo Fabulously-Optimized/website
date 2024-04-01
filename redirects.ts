@@ -7,6 +7,7 @@ export const redirects = [
   ["/install", "https://wiki.download.fo/readme/install-instructions"],
   ["/issues", "https://github.com/Fabulously-Optimized/fabulosuly-optimized/issues"],
   ["/java", "https://adoptium.net/temurin/releases/?version=17&package=jre&arch=x64#version-filter"],
+  ["/lego", "https://youtu.be/o-YBDTqX_ZU"],
   ["/mastodon", "https://floss.social/@fabulouslyoptimized"],
   ["/minecraft", "https://punktid.com/minecraft-java-bedrock?ref=robotkoer"],
   ["/modrinth", "https://modrinth.com/modpack/fabulously-optimized"],
