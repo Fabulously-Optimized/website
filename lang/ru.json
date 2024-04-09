@@ -19,7 +19,7 @@
   "content.home.graph.subtitle.quicker": "в 5 раз быстрее",
   "content.home.graph.subtitle": "Fabulously Optimized {0} чем ванильный Minecraft.",
   "content.home.graph.fps": "FPS",
-  "content.home.graph.small": "Тестировалось на AMD Ryzen 5 2600 (12) {0} 3.400GH и NVIDIA GeForce GTX 1060 3GB в ванильном Minecraft 1.20.1, популярном клиенте для Minecraft 1.20.1, ориентированном на производительность, и Fabulously Optimized 5.4.1 (в одиночной игре). Ваш результат может отличаться.",
+  "content.home.graph.small": "Тестировалось на AMD Ryzen 5 2600 (12) {0} 3.400GHz и NVIDIA GeForce GTX 1060 3GB в ванильном Minecraft 1.20.1, популярном клиенте для Minecraft 1.20.1, ориентированном на производительность, и Fabulously Optimized 5.4.1 (в одиночной игре). Ваш результат может отличаться.",
   "content.home.graph.competitor": "Популярный клиент",
   "content.home.graph.vanilla": "Ванильный Minecraft",
   "content.home.download.subtitle": "Мы рекомендуем использовать CurseForge App, Modrinth App, Prism Launcher, MultiMC или официальный Minecraft Launcher.",
