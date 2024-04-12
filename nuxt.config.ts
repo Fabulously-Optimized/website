@@ -15,6 +15,8 @@ function capitalize(string: any) {
 
 function getName(lang) {
   switch(lang) {
+    case 'ms':
+      return 'Bahasa Melayu'; 
     case 'ms-arab':
       return 'بهاس ملايو'; 
     default:
