@@ -16,7 +16,6 @@ const { locales, locale: currentLocale, setLocale } = useI18n();
 const rtlLocales = ['ar', 'he', 'ms-arab', 'fa', 'ur'];
 
 function updateDirection(locale) {
-  console.log("its my " + locale)
   setDirection(rtlLocales.includes(locale));
 }
 
