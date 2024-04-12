@@ -13,6 +13,15 @@ function capitalize(string: any) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function getName(lang) {
+  switch(lang) {
+    case 'ms-arab':
+      return 'بهاس ملايو'; 
+    default:
+      return capitalize(new Intl.DisplayNames([lang], { type: 'language' }).of(lang));
+  }
+}
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/color-mode', '@nuxtjs/i18n', "@nuxt/image"],
@@ -32,9 +41,7 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: 'old.i18n.config.ts',
     locales: languages.map((lang) => ({
-      code: lang, name: capitalize(new Intl.DisplayNames([lang], {
-        type: 'language'
-      }).of(lang)), file: `${lang}.json`
+      code: lang, name: getName(lang), file: `${lang}.json`
     })),
     compilation: {
       strictMessage: false,
