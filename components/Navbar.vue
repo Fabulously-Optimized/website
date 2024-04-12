@@ -8,9 +8,17 @@ import {
   LanguagesIcon,
   OverflowMenu,
 } from "omorphia";
+import { useDirection } from '../composables/useDirection';
+const { setDirection } = useDirection();
 
 const colorMode = useColorMode();
 const { locales, locale: currentLocale, setLocale } = useI18n();
+const rtlLocales = ['ar', 'he', 'ms-arab', 'fa', 'ur'];
+
+function updateDirection(locale) {
+  console.log("its my " + locale)
+  setDirection(rtlLocales.includes(locale));
+}
 
 const theme = computed({
   get() {
@@ -31,10 +39,15 @@ const languageOptionFilter = computed(() => {
     color: locale.code === currentLocale.value ? "green" : "",
     action: () => {
       setLocale(locale.code);
+      updateDirection(locale.code); 
     },
     hoverFilledOnly: false,
   }));
 });
+
+// Initially set the direction based on the current locale
+updateDirection(currentLocale.value);
+
 </script>
 
 <template>
