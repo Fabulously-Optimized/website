@@ -248,6 +248,7 @@ updateDirection(currentLocale.value);
   display: flex;
   margin: auto;
   margin-left: auto;
+  left: calc(var(--gap-xl) * -4);
   flex-direction: row;
   gap: var(--gap-xl);
   flex-wrap: wrap;
