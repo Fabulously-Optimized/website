@@ -243,6 +243,14 @@ updateDirection(currentLocale.value);
   }
 }
 
+html[dir="ltr"] .side {
+  left: calc(var(--gap-xl) * -4);
+}
+
+html[dir="rtl"] .side {
+  right: calc(var(--gap-xl) * -4);
+}
+
 .side {
   position: relative;
   display: flex;
