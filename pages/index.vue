@@ -15,23 +15,18 @@ import {
 
 import FabricIcon from "../components/FabricIcon.vue";
 
-const featureLinks =
-  ref(`\n\n[1]: https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth
-[2]: https://wiki.download.fo/readme/give-up-optifine
-[3]: https://wiki.download.fo/readme/free-cape
-[4]: https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#functional
-[5]: https://github.com/Fabulously-Optimized/fabulously-optimized#downloads
-[6]: https://download.fo/changelog
-[7]: https://wiki.download.fo/readme/update-instructions
-[8]: https://wiki.download.fo/readme/adding-more-mods
-[9]: https://download.fo/github
-[10]: https://download.fo/translate
-[11]: https://download.fo/discord
-[12]: https://wiki.download.fo
-[13]: https://download.fo/thanks
-[14]: https://wiki.download.fo/readme/server-setup
-[15]: https://download.fo/host
-[16]: https://download.fo/terms`);
+const featureLinks = {
+  'feature.performance.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth',
+  'feature.optifine-parity.desc.0': 'https://wiki.download.fo/readme/give-up-optifine',
+  'feature.optifine-parity.desc.1': 'https://wiki.download.fo/readme/free-cape',
+  'feature.feels-familiar.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#functional',
+  'feature.works-anywhere.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized?tab=readme-ov-file#download',
+  'feature.up-to-date.desc.0': 'https://download.fo/changelog',
+  'feature.up-to-date.desc.1': 'https://wiki.download.fo/readme/update-instructions',
+  'feature.built-on-fabric.desc.0': 'https://wiki.download.fo/readme/adding-more-mods',
+  'feature.open-development.desc.0': 'https://download.fo/github',
+  'feature.helpful-community.desc.0': 'https://download.fo/translate'
+};
 
 useSeoMeta({
   title: "Fabulously Optimized",
@@ -83,6 +78,18 @@ const features: any = ref([
     icon: UsersIcon,
   },
 ]);
+
+const getMaxIndex = (featureLinks, featureId) => {
+  if (!featureLinks || !featureId) return 0; // Return 0 or another safe value if inputs are not defined
+
+  const prefix = `feature.${featureId}.desc.`;
+  return Object.keys(featureLinks)
+    .filter(key => key.startsWith(prefix))
+    .reduce((max, key) => {
+      const index = parseInt(key.slice(prefix.length), 10);
+      return Math.max(max, index);
+    }, -1) + 1;
+};
 </script>
 
 <template>
@@ -147,16 +154,22 @@ const features: any = ref([
       'content.home.features.videoID'
     )}`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     <div class="features">
-      <div v-for=" feature in features" class="feature-block">
+      <div v-for="feature in features" class="feature-block">
         <div>
           <h1>
             <component class="feature-icon" :is="feature.icon"></component><span>{{ $t(`feature.${feature.id}.title`)
             }}</span>
           </h1>
-          <div class="markdown-body" v-html="renderHighlightedString(
-              $t(`feature.${feature.id}.desc`) + featureLinks
-            )
-            "></div>
+          
+          <i18n-t :keypath="'feature.' + feature.id + '.desc'" tag="div" class="markdown-body">
+            <a v-for="n in getMaxIndex()" 
+              :href="featureLinks['feature.' + feature.id + '.desc.' + n]" 
+              :key="n">
+              {{ 'feature.' + feature.id + '.desc.' + n }}
+            </a>
+          </i18n-t>
+
+
         </div>
       </div>
     </div>
