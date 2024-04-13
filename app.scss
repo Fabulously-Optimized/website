@@ -98,8 +98,14 @@
   border-top-right-radius: 0px !important;
 }
 
-.markdown-body a {
+.markdown-body a,
+.link-rows a {
   color: var(--color-brand) !important;
+}
+
+html.dark .markdown-body a,
+html.dark .link-rows a  {
+  color: var(--color-brand-dark) !important;
 }
 
 .centered-hero {

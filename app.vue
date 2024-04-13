@@ -39,6 +39,7 @@ useHeadSafe({
 
 :root {
   --color-brand: #785A00 !important;
+  --color-brand-dark: #D6A100 !important;
 }
 
 .page {
