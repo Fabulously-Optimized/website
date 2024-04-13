@@ -105,7 +105,9 @@ const features: any = ref([
         </Button>
       </div>
       <div>
-        <p id="disclaimer-text"><a href="/terms" target="_blank">{{ $t("content.home.columned-hero.disclaimer") }}</a></p>
+        <i18n-t keypath="content.home.columned-hero.disclaimer" tag="p" id="disclaimer-text">
+          <a href="/terms">{{ $t("content.home.columned-hero.disclaimer.link") }}</a>
+        </i18n-t>
       </div>
     </div>
     <div class="column graph__container">
@@ -187,7 +189,9 @@ const features: any = ref([
       <Button :large="true" color="gray" @click="navigateTo(`/vanilla`, { external: true })">{{ $t("content.home.columned-hero.vanilla") }}</Button>
     </div>
     <div style="margin: -1em">
-      <p id="disclaimer-text"><a href="/terms" target="_blank">{{ $t("content.home.columned-hero.disclaimer") }}</a></p>
+    <i18n-t keypath="content.home.columned-hero.disclaimer" tag="p" id="disclaimer-text">
+      <a href="/terms">{{ $t("content.home.columned-hero.disclaimer.link") }}</a>
+    </i18n-t>
     </div>
     <!-- <DownloadSection class="download-card-fix" /> -->
   </div>
@@ -312,8 +316,7 @@ h3 {
   font-size: 0.6em;
 }
 
-#disclaimer-text, #disclaimer-text > a{
+#disclaimer-text{
   color: gray;
-  cursor: pointer;
 }
 </style>
