@@ -9,7 +9,6 @@ export function useDirection() {
     // Ensure the code runs only on the client side
     if (typeof window !== 'undefined') {
       document.documentElement.setAttribute('dir', direction.value);
-      console.log('Direction set to:', direction.value);
     }
   }
 

@@ -145,9 +145,7 @@ const features: any = ref([
     <h1>{{ $t("content.home.features.title") }}</h1>
     <iframe width="1120" height="630" :src="`https://www.youtube-nocookie.com/embed/${$t(
       'content.home.features.videoID'
-    )}`" title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
+    )}`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     <div class="features">
       <div v-for=" feature in features" class="feature-block">
         <div>
