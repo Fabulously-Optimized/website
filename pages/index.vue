@@ -89,8 +89,11 @@ const features: any = ref([
 const { locale, setLocale } = useI18n();
 
 onMounted(() => {
-  console.log("setting " + locale.value);
-  setLocale(locale.value);
+    nextTick(() => {
+        console.log("setting " + locale.value);
+        setLocale(locale.value);
+    });
+
 });
 </script>
 
