@@ -157,21 +157,7 @@ const features: any = ref([
               $t(`feature.${feature.id}.desc`) + featureLinks
             )
             "></div>
-          <br />
-          <Button v-if="feature.button" :large="true" :color="feature.button.color" @click="
-            navigateTo(feature.button.href, {
-              external: feature.button.external,
-            })
-            ">
-            <component :is="feature.button.icon" v-if="feature.button.icon != undefined"></component>
-            {{ $t(`feature.${feature.id}.btn`) }}
-          </Button>
         </div>
-        <!-- <img
-      v-if="features.indexOf(feature) % 2 === 0"
-      :src="`/features/${feature.id}.webp`"
-      class="dramatic-screenshot"
-    /> -->
       </div>
     </div>
   </div>
