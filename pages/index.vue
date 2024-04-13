@@ -14,6 +14,8 @@ import {
 } from "omorphia";
 
 import FabricIcon from "../components/FabricIcon.vue";
+import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const featureLinks =
   ref(`\n\n[1]: https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth
@@ -83,6 +85,13 @@ const features: any = ref([
     icon: UsersIcon,
   },
 ]);
+
+const { locale, setLocale } = useI18n();
+
+onMounted(() => {
+  console.log("does it work")
+  setLocale(locale.value);
+});
 </script>
 
 <template>
@@ -147,7 +156,7 @@ const features: any = ref([
       'content.home.features.videoID'
     )}`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     <div class="features">
-      <div v-for=" feature in features" class="feature-block">
+      <div v-for="feature in features" class="feature-block">
         <div>
           <h1>
             <component class="feature-icon" :is="feature.icon"></component><span>{{ $t(`feature.${feature.id}.title`)
