@@ -84,5 +84,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Translate the modpack and mods",
   "content.contribute.contributeWikiTitle": "📝 Contribute to the wiki",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Help with programming things",
-  "content.contribute.contributeDiscordTitle": "💬 Chat and give feedback on our Discord!"
+  "content.contribute.contributeDiscordTitle": "💬 Chat and give feedback on our Discord!",
+  "content.contribute.contributeMustFollowCoc": "Contributions to Fabulously Optimized must follow its {0}.",
+  "content.contribute.contributeCodeOfConduct": "Code of Conduct"
 }
