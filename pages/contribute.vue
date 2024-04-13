@@ -56,7 +56,7 @@ onMounted(() => {
     </a>
     <span v-else>
       {{ project.title }}:
-      <a v-for="(donation, index) in project.donationUrls" :key="index" :href="donation.url" target="_blank">{{ donation.platform }}</a>
+      <a v-for="(donation, index) in project.donationUrls" :key="index" :href="donation.url" target="_blank">{{ donation.platform }}&nbsp;</a>
     </span>
   </li>
 </ul>
@@ -119,6 +119,9 @@ onMounted(() => {
         <strong><a href="https://download.fo/discord">{{ $t("content.contribute.contributeDiscordTitle") }}</a></strong>
     </li>
 </ul>
+<i18n-t keypath="content.contribute.contributeMustFollowCoc" tag="p">
+  <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/CODE-OF-CONDUCT.md">{{ $t("content.contribute.contributeCodeOfConduct") }}</a>
+</i18n-t>
 </template>
 
 
