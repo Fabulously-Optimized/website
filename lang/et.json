@@ -74,5 +74,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Tõlgi modipakki ja mode",
   "content.contribute.contributeWikiTitle": "📝 Panusta vikisse",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Aita programmeerimisasjadega",
-  "content.contribute.contributeDiscordTitle": "💬 Vestle ja anna tagasisidet meie Discordis!"
+  "content.contribute.contributeDiscordTitle": "💬 Vestle ja anna tagasisidet meie Discordis!",
+  "content.contribute.contributeMustFollowCoc": "Fabulously Optimized'i panustamised peavad järgima selle {0}.",
+  "content.contribute.contributeCodeOfConduct": "käitumiskoodeksit"
 }
