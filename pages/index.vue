@@ -8,25 +8,11 @@ import {
   LightBulbIcon,
   VersionIcon,
   PaintBrushIcon,
-  renderHighlightedString,
   UpdatedIcon,
   DiscordIcon,
 } from "omorphia";
 
 import FabricIcon from "../components/FabricIcon.vue";
-
-const featureLinks = {
-  'feature.performance.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth',
-  'feature.optifine-parity.desc.0': 'https://wiki.download.fo/readme/give-up-optifine',
-  'feature.optifine-parity.desc.1': 'https://wiki.download.fo/readme/free-cape',
-  'feature.feels-familiar.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#functional',
-  'feature.works-anywhere.desc.0': 'https://github.com/Fabulously-Optimized/fabulously-optimized?tab=readme-ov-file#download',
-  'feature.up-to-date.desc.0': 'https://download.fo/changelog',
-  'feature.up-to-date.desc.1': 'https://wiki.download.fo/readme/update-instructions',
-  'feature.built-on-fabric.desc.0': 'https://wiki.download.fo/readme/adding-more-mods',
-  'feature.open-development.desc.0': 'https://download.fo/github',
-  'feature.helpful-community.desc.0': 'https://download.fo/translate'
-};
 
 useSeoMeta({
   title: "Fabulously Optimized",
@@ -38,58 +24,6 @@ useSeoMeta({
   twitterImage: "/icon.png",
   themeColor: "#d19321",
 });
-
-interface FeatureItem {
-  id: string;
-  icon: any;
-}
-
-const features: any = ref([
-  {
-    id: "performance",
-    icon: ChartIcon,
-  },
-  {
-    id: "optifine-parity",
-    icon: PaintBrushIcon,
-  },
-  {
-    id: "feels-familiar",
-    icon: LightBulbIcon,
-  },
-  {
-    id: "works-anywhere",
-    icon: ClientIcon,
-  },
-  {
-    id: "up-to-date",
-    icon: UpdatedIcon,
-  },
-  {
-    id: "built-on-fabric",
-    icon: FabricIcon,
-  },
-  {
-    id: "open-development",
-    icon: VersionIcon,
-  },
-  {
-    id: "helpful-community",
-    icon: UsersIcon,
-  },
-]);
-
-const getMaxIndex = (featureLinks, featureId) => {
-  if (!featureLinks || !featureId) return 0; // Return 0 or another safe value if inputs are not defined
-
-  const prefix = `feature.${featureId}.desc.`;
-  return Object.keys(featureLinks)
-    .filter(key => key.startsWith(prefix))
-    .reduce((max, key) => {
-      const index = parseInt(key.slice(prefix.length), 10);
-      return Math.max(max, index);
-    }, -1) + 1;
-};
 </script>
 
 <template>
@@ -154,22 +88,117 @@ const getMaxIndex = (featureLinks, featureId) => {
       'content.home.features.videoID'
     )}`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     <div class="features">
-      <div v-for="feature in features" class="feature-block">
+      <div class="feature-block">
         <div>
           <h1>
-            <component class="feature-icon" :is="feature.icon"></component><span>{{ $t(`feature.${feature.id}.title`)
-            }}</span>
+              <ChartIcon class="feature-icon" />
+              <span>{{ $t("feature.performance.title") }}</span>
           </h1>
-          
-          <i18n-t :keypath="'feature.' + feature.id + '.desc'" tag="div" class="markdown-body">
-            <a v-for="n in getMaxIndex()" 
-              :href="featureLinks['feature.' + feature.id + '.desc.' + n]" 
-              :key="n">
-              {{ 'feature.' + feature.id + '.desc.' + n }}
+          <i18n-t keypath="feature.performance.desc" tag="div" class="markdown-body">
+            <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth">
+              {{ $t("feature.performance.desc.0") }}
             </a>
           </i18n-t>
-
-
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <PaintBrushIcon class="feature-icon" />
+              <span>{{ $t("feature.optifine-parity.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.optifine-parity.desc" tag="div" class="markdown-body">
+            <a href="https://wiki.download.fo/readme/give-up-optifine">
+              {{ $t("feature.optifine-parity.desc.0") }}
+            </a>
+            <a href="https://wiki.download.fo/readme/free-cape">
+              {{ $t("feature.optifine-parity.desc.1") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <LightBulbIcon class="feature-icon" />
+              <span>{{ $t("feature.feels-familiar.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.feels-familiar.desc" tag="div" class="markdown-body">
+            <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#functional">
+              {{ $t("feature.feels-familiar.desc.0") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <ClientIcon class="feature-icon" />
+              <span>{{ $t("feature.works-anywhere.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.works-anywhere.desc" tag="div" class="markdown-body">
+            <a href="https://github.com/Fabulously-Optimized/fabulously-optimized?tab=readme-ov-file#download">
+              {{ $t("feature.works-anywhere.desc.0") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <UpdatedIcon class="feature-icon" />
+              <span>{{ $t("feature.up-to-date.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.up-to-date.desc" tag="div" class="markdown-body">
+            <a href="https://download.fo/changelog">
+              {{ $t("feature.up-to-date.desc.0") }}
+            </a>
+            <a href="https://wiki.download.fo/readme/update-instructions">
+              {{ $t("feature.up-to-date.desc.1") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <FabricIcon class="feature-icon" />
+              <span>{{ $t("feature.built-on-fabric.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.built-on-fabric.desc" tag="div" class="markdown-body">
+            <a href="https://wiki.download.fo/readme/adding-more-mods">
+              {{ $t("feature.built-on-fabric.desc.0") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <VersionIcon class="feature-icon" />
+              <span>{{ $t("feature.open-development.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.open-development.desc" tag="div" class="markdown-body">
+            <a href="https://download.fo/github">
+              {{ $t("feature.open-development.desc.0") }}
+            </a>
+          </i18n-t>
+        </div>
+      </div>
+      <div class="feature-block">
+        <div>
+          <h1>
+              <UsersIcon class="feature-icon" />
+              <span>{{ $t("feature.helpful-community.title") }}</span>
+          </h1>
+          <i18n-t keypath="feature.helpful-community.desc" tag="div" class="markdown-body">
+            <a href="https://download.fo/translate">
+              {{ $t("feature.helpful-community.desc.0") }}
+            </a>
+            <a href="https://download.fo/discord">
+              {{ $t("feature.helpful-community.desc.1") }}
+            </a>
+          </i18n-t>
         </div>
       </div>
     </div>
