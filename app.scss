@@ -108,6 +108,15 @@ html.dark .link-rows a  {
   color: var(--color-brand-dark) !important;
 }
 
+.markdown-body p {
+  line-height: 1.5;
+  padding: 0;
+}
+
+.feature-block h1{
+  padding-top: 0.5em;
+}
+
 .centered-hero {
   // Center everything along a column.
   display: flex;
@@ -136,4 +145,15 @@ html.dark .link-rows a  {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--color-base);
+}
+
+a { 
+  color: var(--color-brand); text-decoration: none; 
+}
+html.dark a {
+  color: var(--color-brand-dark);
+}
+
+a:hover { 
+  text-decoration: underline; 
 }
