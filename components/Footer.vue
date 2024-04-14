@@ -67,10 +67,6 @@ import { Avatar } from "omorphia";
   .link-row {
     display: flex;
     flex-direction: column;
-
-    a {
-      color: var(--color-brand);
-    }
   }
 }
 
