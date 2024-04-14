@@ -12,7 +12,8 @@
   "footer.links.vanilla": "Muat turun secara manual",
   "footer.legal_notice": "Laman sesawang dibangunkan oleh {0} dengan tambahan daripada penyumbang Fabulously Optimized. Tidak berkaitan dengan Mojang Studios atau Microsoft",
   "content.home.columned-hero.vanilla": "Muat turun secara manual",
-  "content.home.columned-hero.disclaimer": "Dengan memuat turun Fabulously Optimized, anda telah mengakui penafian ini.",
+  "content.home.columned-hero.disclaimer": "Dengan memuat turun Fabulously Optimized, anda telah {0}.",
+  "content.home.columned-hero.disclaimer.link": "mengakui penafian ini",
   "content.home.columned-hero.title.supercharge": "Pertingkatkan",
   "content.home.columned-hero.title": "{0} pengalaman Minecraft anda.",
   "content.home.columned-hero.subtitle": "Sebuah pek mod Minecraft ringkas yang memfokuskan peningkatan prestasi dan grafik.",
@@ -73,5 +74,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Terjemah pek mod dan mod-modnya",
   "content.contribute.contributeWikiTitle": "📝 Beri sumbangan kepada wiki",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Bantu dengan pengaturcaraan",
-  "content.contribute.contributeDiscordTitle": "💬 Berbual dan berikan maklum balas dalam Discord kami!"
+  "content.contribute.contributeDiscordTitle": "💬 Berbual dan berikan maklum balas dalam Discord kami!",
+  "content.contribute.contributeMustFollowCoc": "Sumbangan kepada Fabulously Optimized perlu mengikuti {0} berikut.",
+  "content.contribute.contributeCodeOfConduct": "Tatakelakuan"
 }
