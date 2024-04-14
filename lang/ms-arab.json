@@ -12,7 +12,8 @@
   "footer.links.vanilla": "موات تورون سچارا مانوال",
   "footer.legal_notice": "لامن سساوڠ دباڠونکن اوليه {0} دڠن تمبهن درڤد ڤپومبڠ Fabulously Optimized. تيدق برکاءيتن دڠن Mojang Studios اتاو Microsoft",
   "content.home.columned-hero.vanilla": "موات تورون سچارا مانوال",
-  "content.home.columned-hero.disclaimer": "دڠن مموات تورون Fabulously Optimized⹁ اندا تله مڠاکوءي ڤنفين اين.",
+  "content.home.columned-hero.disclaimer": "دڠن مموات تورون Fabulously Optimized⹁ اندا تله {0}.",
+  "content.home.columned-hero.disclaimer.link": "مڠاکوءي ڤنفين اين",
   "content.home.columned-hero.title.supercharge": "ڤرتيڠکتکن",
   "content.home.columned-hero.title": "{0} ڤڠالمن ماءينکرف‌ت اندا.",
   "content.home.columned-hero.subtitle": "سبواه ڤيک مود ماءينکرف‌ت ريڠکس يڠ ممفوکوسکن ڤنيڠکتن ڤريستاسي دان ݢرافيک.",
@@ -73,5 +74,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 ترجمه ڤيک مود دان مود-مودڽ",
   "content.contribute.contributeWikiTitle": "📝 بري سومبڠن کڤد ويکي",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 بنتو دڠن ڤڠاتورچاراءن",
-  "content.contribute.contributeDiscordTitle": "💬 بربوال دان برايکن معلوم بالس ددالم Discord کامي!"
+  "content.contribute.contributeDiscordTitle": "💬 بربوال دان برايکن معلوم بالس ددالم Discord کامي!",
+  "content.contribute.contributeMustFollowCoc": "سومبڠن کڤد Fabulously Optimized ڤرلو مڠيکوتي {0} برايکوت.",
+  "content.contribute.contributeCodeOfConduct": "تاتاکلاکوان"
 }

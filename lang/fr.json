@@ -12,14 +12,15 @@
   "footer.links.vanilla": "Téléchargement manuel",
   "footer.legal_notice": "Site développé par {0} avec l'appui des contributeurs de Fabulously Optimized. Non affilié avec Mojang Studios ou Microsoft.",
   "content.home.columned-hero.vanilla": "Téléchargement manuel",
-  "content.home.columned-hero.disclaimer": "En téléchargeant Fabulously Optimized, vous reconnaissez avoir accepté les avertissements.",
+  "content.home.columned-hero.disclaimer": "En téléchargeant Fabulously Optimized, vous avez {0}.",
+  "content.home.columned-hero.disclaimer.link": "pris connaissance des mises en gardes",
   "content.home.columned-hero.title.supercharge": "Sur-boostez",
   "content.home.columned-hero.title": "{0} votre expérience Minecraft.",
   "content.home.columned-hero.subtitle": "Un simple modpack axé sur l'amélioration des performances et des graphismes.",
   "content.home.graph.subtitle.quicker": "5× plus rapide",
   "content.home.graph.subtitle": "Fabulously Optimized est jusqu'à {0} que Minecraft vanilla.",
   "content.home.graph.fps": "FPS",
-  "content.home.graph.small": "Testé avec un AMD Ryzen 5 2600 (12) {0} 3.400GH et une NVIDIA GeForce GTX 1060 3GB avec Minecraft 1.20.1 vanilla, un client de jeu populaire axé sur les performances pour Minecraft 1.20.1 et Fabulously Optimized 5.4.1 (solo). Les résultats peuvent varier sur d'autres systèmes.",
+  "content.home.graph.small": "Testé avec un AMD Ryzen 5 2600 (12) {0} 3.400GHz et une NVIDIA GeForce GTX 1060 3GB avec Minecraft 1.20.1 vanilla, un client de jeu populaire axé sur les performances pour Minecraft 1.20.1 et Fabulously Optimized 5.4.1 (solo). Les résultats peuvent varier sur d'autres systèmes.",
   "content.home.graph.competitor": "Client Minecraft Populaire",
   "content.home.graph.vanilla": "Minecraft Vanilla",
   "content.home.download.subtitle": "Nous encourageons l'utilisation de CurseForge App, Modrinth App, Prism Launcher, MultiMC, ou le lanceur officiel de Minecraft.",
@@ -73,5 +74,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Traduire le modpack et les mods",
   "content.contribute.contributeWikiTitle": "📝 Contribuer au wiki",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Aider au développement",
-  "content.contribute.contributeDiscordTitle": "💬 Discuter et donner votre avis sur notre Discord !"
+  "content.contribute.contributeDiscordTitle": "💬 Discuter et donner votre avis sur notre Discord !",
+  "content.contribute.contributeMustFollowCoc": "Les contributions à Fabulously Optimized doivent être conformes à son {0}.",
+  "content.contribute.contributeCodeOfConduct": "Code de Conduite"
 }

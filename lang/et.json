@@ -12,7 +12,8 @@
   "footer.links.vanilla": "Käsitsi allalaadimine",
   "footer.legal_notice": "Veebileht arendatud {0} poolt, täiendustega Fabulously Optimized panustajatelt. Ei ole seotud Mojang Studios'iga ega Microsoftiga.",
   "content.home.columned-hero.vanilla": "Käsitsi allalaadimine",
-  "content.home.columned-hero.disclaimer": "Fabulously Optimized allalaadides oled nõustunud selle lahtiütlustega.",
+  "content.home.columned-hero.disclaimer": "Fabulously Optimized allalaadides oled {0}.",
+  "content.home.columned-hero.disclaimer.link": "nõustunud selle lahtiütlustega",
   "content.contributors": "Panustajad",
   "content.home.columned-hero.title.supercharge": "võimsaks",
   "content.home.columned-hero.title": "Muuda oma Minecrafti mängukogemus {0}.",
@@ -74,5 +75,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Tõlgi modipakki ja mode",
   "content.contribute.contributeWikiTitle": "📝 Panusta vikisse",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Aita programmeerimisasjadega",
-  "content.contribute.contributeDiscordTitle": "💬 Vestle ja anna tagasisidet meie Discordis!"
+  "content.contribute.contributeDiscordTitle": "💬 Vestle ja anna tagasisidet meie Discordis!",
+  "content.contribute.contributeMustFollowCoc": "Fabulously Optimized'i panustamised peavad järgima selle {0}.",
+  "content.contribute.contributeCodeOfConduct": "käitumiskoodeksit"
 }

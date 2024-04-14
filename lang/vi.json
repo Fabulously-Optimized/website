@@ -12,7 +12,8 @@
   "footer.links.vanilla": "Tải xuống thủ công",
   "footer.legal_notice": "Trang web được phát triển bởi {0} với sự bổ sung từ những người đóng góp của Fabulously Optimized. Không liên kết với Mojang Studios hay Microsoft.",
   "content.home.columned-hero.vanilla": "Tải xuống thủ công",
-  "content.home.columned-hero.disclaimer": "Bằng cách tải xuống Fabulously Optimized, bạn đã xác nhận các tuyên bố từ chối trách nhiệm.​",
+  "content.home.columned-hero.disclaimer": "Bằng cách tải xuống Fabulously Optimized, bạn đã {0}.",
+  "content.home.columned-hero.disclaimer.link": "thừa nhận những tuyên bố từ chối trách nhiệm",
   "content.home.columned-hero.title.supercharge": "Nâng cao",
   "content.home.columned-hero.title": "{0} trải nghiệm chơi Minecraft của bạn.",
   "content.home.columned-hero.subtitle": "Một gói mod Minecraft đơn giản tập trung vào các cải tiến về hiệu suất và đồ họa.",
@@ -73,5 +74,7 @@
   "content.contribute.contributeTranslateTitle": "🌐 Dịch modpack và các mod",
   "content.contribute.contributeWikiTitle": "📝 Đóng góp cho wiki",
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Trợ giúp lập trình",
-  "content.contribute.contributeDiscordTitle": "💬 Trò chuyện và đưa ra phản hồi trên Discord của chúng tôi!"
+  "content.contribute.contributeDiscordTitle": "💬 Trò chuyện và đưa ra phản hồi trên Discord của chúng tôi!",
+  "content.contribute.contributeMustFollowCoc": "Những đóng góp cho Fabulously Optimized phải tuân theo {0} của nó.",
+  "content.contribute.contributeCodeOfConduct": "Quy tắc Ứng xử"
 }
