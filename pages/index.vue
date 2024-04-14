@@ -96,11 +96,13 @@ useSeoMeta({
               <ChartIcon class="feature-icon" />
               <span>{{ $t("feature.performance.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.performance.desc" tag="div" class="markdown-body">
-            <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth">
-              {{ $t("feature.performance.desc.0") }}
-            </a>
-          </i18n-t>
+          <div class="markdown-body">
+            <i18n-t keypath="feature.performance.desc" tag="p">
+              <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#smooth">
+                {{ $t("feature.performance.desc.0") }}
+              </a>
+            </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -109,14 +111,16 @@ useSeoMeta({
               <PaintBrushIcon class="feature-icon" />
               <span>{{ $t("feature.optifine-parity.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.optifine-parity.desc" tag="div" class="markdown-body">
-            <a href="https://wiki.download.fo/readme/give-up-optifine">
-              {{ $t("feature.optifine-parity.desc.0") }}
-            </a>
-            <a href="https://wiki.download.fo/readme/free-cape">
-              {{ $t("feature.optifine-parity.desc.1") }}
-            </a>
-          </i18n-t>
+          <div class="markdown-body">
+            <i18n-t keypath="feature.optifine-parity.desc" tag="p">
+              <a href="https://wiki.download.fo/readme/give-up-optifine">
+                {{ $t("feature.optifine-parity.desc.0") }}
+              </a>
+              <a href="https://wiki.download.fo/readme/free-cape">
+                {{ $t("feature.optifine-parity.desc.1") }}
+              </a>
+            </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -125,11 +129,13 @@ useSeoMeta({
               <LightBulbIcon class="feature-icon" />
               <span>{{ $t("feature.feels-familiar.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.feels-familiar.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.feels-familiar.desc" tag="p">
             <a href="https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#functional">
               {{ $t("feature.feels-familiar.desc.0") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -138,11 +144,13 @@ useSeoMeta({
               <ClientIcon class="feature-icon" />
               <span>{{ $t("feature.works-anywhere.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.works-anywhere.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.works-anywhere.desc" tag="p">
             <a href="https://github.com/Fabulously-Optimized/fabulously-optimized?tab=readme-ov-file#download">
               {{ $t("feature.works-anywhere.desc.0") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -151,7 +159,8 @@ useSeoMeta({
               <UpdatedIcon class="feature-icon" />
               <span>{{ $t("feature.up-to-date.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.up-to-date.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.up-to-date.desc" tag="p">
             <a href="https://download.fo/changelog">
               {{ $t("feature.up-to-date.desc.0") }}
             </a>
@@ -159,6 +168,7 @@ useSeoMeta({
               {{ $t("feature.up-to-date.desc.1") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -167,11 +177,13 @@ useSeoMeta({
               <FabricIcon class="feature-icon" />
               <span>{{ $t("feature.built-on-fabric.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.built-on-fabric.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.built-on-fabric.desc" tag="p">
             <a href="https://wiki.download.fo/readme/adding-more-mods">
               {{ $t("feature.built-on-fabric.desc.0") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -180,11 +192,13 @@ useSeoMeta({
               <VersionIcon class="feature-icon" />
               <span>{{ $t("feature.open-development.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.open-development.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.open-development.desc" tag="p">
             <a href="https://download.fo/github">
               {{ $t("feature.open-development.desc.0") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
       <div class="feature-block">
@@ -193,7 +207,8 @@ useSeoMeta({
               <UsersIcon class="feature-icon" />
               <span>{{ $t("feature.helpful-community.title") }}</span>
           </h1>
-          <i18n-t keypath="feature.helpful-community.desc" tag="div" class="markdown-body">
+          <div class="markdown-body">
+          <i18n-t keypath="feature.helpful-community.desc" tag="p">
             <a href="https://download.fo/translate">
               {{ $t("feature.helpful-community.desc.0") }}
             </a>
@@ -201,6 +216,7 @@ useSeoMeta({
               {{ $t("feature.helpful-community.desc.1") }}
             </a>
           </i18n-t>
+          </div>
         </div>
       </div>
     </div>
