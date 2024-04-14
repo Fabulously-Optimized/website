@@ -133,14 +133,4 @@ body {
 li img { 
   width: 1em; height: 1em; margin-right: 0.5em; 
 }
-a { 
-  color: var(--color-brand); text-decoration: none; 
-}
-html.dark a {
-  color: var(--color-brand-dark);
-}
-
-a:hover { 
-  text-decoration: underline; 
-}
 </style>
