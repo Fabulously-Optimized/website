@@ -33,8 +33,7 @@ useHeadSafe({
 .max-width-wrapper {
   max-width: 1920px;
   /* align center */
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 :root {

@@ -211,8 +211,7 @@ updateDirection(currentLocale.value);
 
 .nav-body {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 .nav {
@@ -243,19 +242,15 @@ updateDirection(currentLocale.value);
   }
 }
 
-html[dir="ltr"] .side {
+html .side {
   left: calc(var(--gap-xl) * -4);
-}
-
-html[dir="rtl"] .side {
-  right: calc(var(--gap-xl) * -4);
 }
 
 .side {
   position: relative;
   display: flex;
   margin: auto;
-  margin-left: auto;
+  margin-inline-start: auto;
   flex-direction: row;
   gap: var(--gap-xl);
   flex-wrap: wrap;

@@ -69,7 +69,7 @@ onMounted(() => {
 @media (max-width: 999px) {
   #vanilla-embed {
     width: 100% !important;
-    margin-left: -1em !important;
+    margin-inline-start: -1em !important;
   }
 }
 

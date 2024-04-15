@@ -263,8 +263,7 @@ h3 {
   max-width: 75vw;
 
   // align everything center
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -275,13 +274,12 @@ h3 {
 .feature-block {
   gap: var(--gap-xl);
   align-items: center;
-  padding-right: 2%;
+  padding-inline-end: 2%;
 
   // img {
   //   width: 85%;
   //   height: 85%;
-  //   margin-left: auto;
-  //   margin-right: auto;
+  //   margin-inline: auto;
   //   object-fit: cover;
 
   //   border-radius: var(--gap-xl);

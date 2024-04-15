@@ -158,7 +158,7 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .toggle-pair {
-  margin-left: auto;
+  margin-inline-start: auto;
   display: flex;
   justify-content: space-between;
   margin-top: auto;

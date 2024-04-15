@@ -131,6 +131,6 @@ body {
 }
 
 li img { 
-  width: 1em; height: 1em; margin-right: 0.5em; 
+  width: 1em; height: 1em; margin-inline-end: 0.5em; 
 }
 </style>
