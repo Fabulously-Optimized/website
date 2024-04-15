@@ -7,8 +7,8 @@ useHeadSafe({
   link: [
     {
       rel: "icon",
-      type: "image/png",
-      href: "/icon.png",
+      type: "image/x-icon",
+      href: "/favicon.ico",
     },
   ],
 });
@@ -33,12 +33,11 @@ useHeadSafe({
 .max-width-wrapper {
   max-width: 1920px;
   /* align center */
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 :root {
-  --color-brand: #785A00 !important;
+  --color-brand: #945100 !important;
   --color-brand-dark: #AD8200 !important;
 }
 
