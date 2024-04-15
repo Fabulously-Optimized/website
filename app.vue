@@ -37,7 +37,7 @@ useHeadSafe({
 }
 
 :root {
-  --color-brand: #785A00 !important;
+  --color-brand: #945100 !important;
   --color-brand-dark: #AD8200 !important;
 }
 
