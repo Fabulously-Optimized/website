@@ -7,8 +7,8 @@ useHeadSafe({
   link: [
     {
       rel: "icon",
-      type: "image/png",
-      href: "/icon.png",
+      type: "image/x-icon",
+      href: "/favicon.ico",
     },
   ],
 });
