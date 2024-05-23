@@ -22,4 +22,6 @@ The website is automatically deployed to GitHub Pages when a commit is pushed to
 
 ## Credits
 
-The website was developed by [IMB11](https://imb11.dev/) with additions from Fabulously Optimized contributors.
+
+
+The website was developed by [IMB11](https://github.com/IMB11) with additions from Fabulously Optimized contributors.
