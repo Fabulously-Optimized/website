@@ -251,7 +251,7 @@ h3 {
 }
 
 .bg-div {
-  background-image: url('/background.webp');
+  //background-image: url('/background.webp');
 }
 
 .features {
