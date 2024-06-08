@@ -27,10 +27,13 @@ function getName(lang) {
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/color-mode', '@nuxtjs/i18n', "@nuxt/image"],
+  ssr: true,
   plugins: [
     { src: '~/plugins/floating-vue.client.js', mode: 'client' }
   ],
-  ssr: true,
+  build: {
+    transpile: ['floating-vue'],
+  },
   nitro: {
     preset: 'github-pages',
   },
