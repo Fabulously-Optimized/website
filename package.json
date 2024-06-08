@@ -11,15 +11,15 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxt/image": "^1.5.0",
-    "@nuxtjs/color-mode": "^3.4.0",
+    "@nuxt/image": "^1.7.0",
+    "@nuxtjs/color-mode": "^3.4.1",
     "@nuxtjs/i18n": "8.1.1",
     "nuxt": "^3.11.2",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
   },
   "dependencies": {
     "omorphia": "^0.7.3",
-    "sass": "^1.75.0"
+    "sass": "^1.77.4"
   }
 }
