@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - name: Enable CorePack
+        run: corepack enable pnpm
       - name: Prepare CorePack
         run: corepack prepare pnpm@8.6.1 --activate
       - name: Set up Node.js
