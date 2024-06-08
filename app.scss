@@ -157,3 +157,13 @@ html.dark a {
 a:hover { 
   text-decoration: underline; 
 }
+
+// Workarounds for Omorphia 0.9.5
+
+.light{
+  --color-bg: #e5e7eb;
+}
+
+html {
+  background-color: var(--color-bg);
+}
