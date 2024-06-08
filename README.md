@@ -1,4 +1,4 @@
-# Fabulously Web
+# Website
 
 **If you see this page outside GitHub, [please tell us on Discord](https://download.fo/discord).**
 
