@@ -26,7 +26,9 @@ function getName(lang) {
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  ssr: true,
+  plugins: [
+    { src: '~/plugins/floating-vue', mode: 'client' } // Load plugin only on client-side
+  ],
   modules: ['@nuxtjs/color-mode', '@nuxtjs/i18n', "@nuxt/image"],
   nitro: {
     preset: 'github-pages',
