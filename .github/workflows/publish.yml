@@ -9,8 +9,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Enable CorePack
-        run: corepack enable
+      - name: Disable CorePack for yarn
+        run: corepack disable yarn
+      - name: Enable CorePack for pnpm
+        run: corepack enable pnpm
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
