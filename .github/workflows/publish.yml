@@ -16,6 +16,14 @@ jobs:
         with:
           node-version: "18"
           check-latest: true
+      - name: Clear Corepack Cache
+        run: corepack prepare pnpm@latest --activate
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Ensure Clean Slate
+        run: |
+          if [ -d "node_modules" ]; then rm -rf node_modules; fi
+          if [ -f "pnpm-lock.yaml" ]; then rm pnpm-lock.yaml; fi
       - name: Install dependencies
         run: pnpm install
       - name: Build using pnpm
