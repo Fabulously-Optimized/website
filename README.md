@@ -1,6 +1,6 @@
 # Website
 
-**If you see this page outside GitHub, [please tell us on Discord](https://download.fo/discord).**
+**If you see this page while going to the site, [please tell us on Discord](https://download.fo/discord).**
 
 This website is designed in Nuxt.js and is used to display information about the modpack and its mods.
 
