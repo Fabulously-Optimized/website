@@ -17,7 +17,7 @@ pnpm dev
 
 ## Deployment
 
-The website is automatically deployed to GitHub Pages when a commit is pushed to the `master` branch.
+The website is automatically deployed to GitHub Pages when a commit is pushed to the `production` branch.
 
 
 ## Credits
