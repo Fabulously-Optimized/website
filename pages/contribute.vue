@@ -79,9 +79,6 @@ onMounted(() => {
     </li>
     <li>
         <strong><a href="https://download.fo/rate">{{ $t("content.contribute.modpackAltToHeartTitle") }}</a></strong>
-        <ul>
-            <li>{{ $t("content.contribute.modpackAltToHeartSignupInfo") }}</li>
-        </ul>
     </li>
     <li>
         <strong><a href="https://wiki.download.fo/readme/free-cape">{{ $t("content.contribute.modpackFreeCapeTitle") }}</a></strong>
