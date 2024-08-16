@@ -54,7 +54,7 @@ onMounted(() => {
     <iframe id="vanilla-embed" src="../vanilla-embed.html" frameborder="0" height="100em"></iframe>
   </div>
   <br>
-  <Button color="blue" @click="navigateTo(`https://wiki.download.fo/readme/install-instructions#minecraft-launcher-vanilla`, { external: true })">
+  <Button color="blue" @click="navigateTo(`https://wiki.download.fo/install-instructions#minecraft-launcher-vanilla`, { external: true })">
     <WikiIcon />{{ $t("content.vanilla.button.howto") }}
   </Button> 
 		<p><b>{{ $t("content.vanilla.button.disclaimer.important") }}</b> {{ $t("content.vanilla.button.disclaimer.text") }}</p>
