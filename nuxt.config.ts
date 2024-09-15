@@ -21,6 +21,8 @@ function getName(lang) {
       return 'بهاس ملايو'; 
     case 'zh':
       return '中文（香港特別行政區）';
+    case 'qep':
+      return 'Anglish';
     default:
       return capitalize(new Intl.DisplayNames([lang], { type: 'language' }).of(lang));
   }
