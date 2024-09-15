@@ -19,6 +19,8 @@ function getName(lang) {
       return 'Bahasa Melayu'; 
     case 'ms-arab':
       return 'بهاس ملايو'; 
+    case 'zh':
+      return '中文（香港特別行政區）';
     default:
       return capitalize(new Intl.DisplayNames([lang], { type: 'language' }).of(lang));
   }
