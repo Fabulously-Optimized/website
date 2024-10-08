@@ -35,7 +35,7 @@
 
 		#versionsList > li
 		{
-			padding-top: 1em; 
+			padding-top: 1em;
 		}
 
 		#olderVersions {
@@ -87,11 +87,11 @@
 		function isVersionAllowed(version, minVersion = '1.19.4') {
 			version = version.split('.').map(Number);  // split the versions string into an array of numbers ex (1.19.4 -> [1, 19, 4])
 			minVersion = minVersion.split('.').map(Number);
-		
+
 			for (let i = 0; i < Math.max(version.length, minVersion.length); i++) {  // check witch version is higher
 				const num1 = version[i] || 0;
 				const num2 = minVersion[i] || 0;
-		
+
 				if (num1 > num2) return true;
 				if (num1 < num2) return false;
 			}
@@ -100,7 +100,7 @@
 
 		function groupByGameVersions(data) {
 		    const groupedVersion = {};
-		
+
 		    data.forEach(item => { //forEach FO release
 		        item.game_versions.forEach(version => { // for each compatible mc_version of said release
 		            if (isVersionAllowed(version)) { // if it's not less than 1.19.4 (such older versions have to be downloaded from curseforge)
@@ -111,7 +111,7 @@
 		            }
 		        });
 		    });
-		
+
 		    return groupedVersion;
 		}
 
@@ -120,13 +120,13 @@
 		    // If the latest version is a beta, display it and the newest stable release available
 		    // If the latest version is an alpha, display it, the newest beta available and the newest stable release available
 		    const versionsToDisplay = [];
-		
+
 		    for (const version in groupedVersion) {
 		        if (groupedVersion[version].length > 0) {
 		            let firstAlpha = null;
 		            let firstBeta = null;
 		            let firstRelease = null;
-				
+
 		            for (const item of groupedVersion[version]) {
 		                if (!item.name.toLowerCase().includes('alpha') && !item.name.toLowerCase().includes('beta')) {
 		                    firstRelease = item;
@@ -150,10 +150,10 @@
 		            if (firstAlpha) versionsToDisplay.push(firstAlpha);
 		            if (firstBeta) versionsToDisplay.push(firstBeta);
 		            if (firstRelease) versionsToDisplay.push(firstRelease);
-				
+
 		        }
 		    }
-			// Sort versionsToDisplay, to meke newer versions appear first
+			// Sort versionsToDisplay by the number after the "for", to make newer versions appear first
 			versionsToDisplay.sort((a, b) => {
 			    const extractNumber = (name) => {
 			        const match = name.match(/for\s*([\d. ]+)/i); // Match "for" followed by numbers, dots, and spaces
@@ -173,19 +173,19 @@
 
 		function populateDropdownAndSetupButton(versions) {
 		    const versionsDropdown = document.getElementById('versionsDropdown');
-		
+
 		    versions.forEach(version => {
 		        const option = document.createElement('option');
-		        option.textContent = version.name; 
+		        option.textContent = version.name;
 		        option.value = version.files[0].url;
 		        versionsDropdown.appendChild(option);
 		    });
-		
+
 		    const specialOption = document.createElement('option');
 		    specialOption.textContent = '4.6.1, 4.5.7, ...';
 		    specialOption.value = 'CurseForge';
 		    versionsDropdown.appendChild(specialOption);
-		
+
 		    // Set up the "Go" button to download the selected pack or open the URL
 		    const goButton = document.getElementById('goButton');
 		    goButton.onclick = () => {
