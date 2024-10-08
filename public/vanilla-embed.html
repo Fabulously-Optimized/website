@@ -85,19 +85,17 @@
 		}
 
 		function isVersionAllowed(version, minVersion = '1.19.4') {
-		    version = version.split('.').map(Number);  // split the versions string into an array of numbers ex (1.19.4 -> [1, 19, 4])
-		    minVersion = minVersion.split('.').map(Number);
+			version = version.split('.').map(Number);  // split the versions string into an array of numbers ex (1.19.4 -> [1, 19, 4])
+			minVersion = minVersion.split('.').map(Number);
 		
-		    // Ensure both arrays have the same length by padding with zeros
-		    while (version.length < minVersion.length) version.push(0);
-		    while (minVersion.length < version.length) minVersion.push(0);
+			for (let i = 0; i < Math.max(version.length, minVersion.length); i++) {  // check witch version is higher
+				const num1 = version[i] || 0;
+				const num2 = minVersion[i] || 0;
 		
-			// true if the version is >= than 1.19.4
-		    if (version[0] > minVersion[0]) return true;
-		    if (version[1] > minVersion[1]) return true;
-		    if (version[2] >= minVersion[2]) return true;
-
-		    return false;
+				if (num1 > num2) return true;
+				if (num1 < num2) return false;
+			}
+			return true; // Return true if versions are equal
 		}
 
 		function groupByGameVersions(data) {
@@ -186,7 +184,7 @@
 		    };
 		}
 
-		const apiUrl = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
+		const apiUrl = 'https://api.modrinth.com/minVersion/project/1KVo5zza/version';
 
 		const urlParams = new URLSearchParams(window.location.search);
 		const downloadParam = urlParams.get('download');
