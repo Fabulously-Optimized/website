@@ -74,166 +74,147 @@
 
 	<script>
 		async function loadVersionsFromURL(url) {
-			try {
-				const response = await fetch(url);
-				const data = await response.json();
-				return data;
-			} catch (error) {
-				console.error('Error loading data:', error);
-				return null;
-			}
+		    try {
+		        const response = await fetch(url);
+		        const data = await response.json();
+		        return data;
+		    } catch (error) {
+		        console.error('Error loading data:', error);
+		        return null;
+		    }
 		}
 
-		function getLatestVersionsForAllGameVersions(versions) {
-			const latestVersionsMap = {};
+		function isVersionAllowed(version, minVersion = '1.19.4') {
+		    version = version.split('.').map(Number);  // split the versions string into an array of numbers ex (1.19.4 -> [1, 19, 4])
+		    minVersion = minVersion.split('.').map(Number);
+		
+		    // Ensure both arrays have the same length by padding with zeros
+		    while (version.length < minVersion.length) version.push(0);
+		    while (minVersion.length < version.length) minVersion.push(0);
+		
+			// true if the version is >= than 1.19.4
+		    if (version[0] > minVersion[0]) return true;
+		    if (version[1] > minVersion[1]) return true;
+		    if (version[2] >= minVersion[2]) return true;
 
-			versions.forEach(version => {
-				const versionGameVersions = version.game_versions; // Assuming multiple game versions in the array
-
-				versionGameVersions.forEach(gameVersion => {
-					if (isVersionAllowed(gameVersion) && (!latestVersionsMap[gameVersion] || compareVersions(
-							version.version_number, latestVersionsMap[gameVersion].version_number) > 0)) {
-						latestVersionsMap[gameVersion] = version;
-					}
-				});
-			});
-
-			const sortedVersions = Object.values(latestVersionsMap).sort((a, b) => compareVersions(b.version_number, a
-				.version_number));
-			return sortedVersions;
+		    return false;
 		}
 
-		function normalizeVersion(version) {
-			const parts = version.split('.');
-			// Ensure version has three parts [major, minor, patch]
-			while (parts.length < 3) {
-				parts.push('0'); // Append '0' for missing minor/patch numbers
-			}
-			return parts.join('.');
+		function groupByGameVersions(data) {
+		    const groupedVersion = {};
+		
+		    data.forEach(item => { //forEach FO release
+		        item.game_versions.forEach(version => { // for each compatible mc_version of said release
+		            if (isVersionAllowed(version)) { // if it's not less than 1.19.4 (such older versions have to be downloaded from curseforge)
+		                if (!groupedVersion[version]) {      // if we don't have an array for this minecraft_version yet create one
+		                    groupedVersion[version] = [];
+		                }
+		                groupedVersion[version].push(item); // add the release to the minecraft_version array
+		            }
+		        });
+		    });
+		
+		    return groupedVersion;
 		}
 
-		function isVersionAllowed(version) {
-			const allowedFromVersion = '1.19.4';
-			const normalizedVersion = normalizeVersion(version);
-			return compareVersions(normalizedVersion, allowedFromVersion) >= 0;
-		}
-
-		function compareVersions(versionA, versionB) {
-			const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
-
-			const parseVersion = (version) => {
-				const match = version.match(semverRegex);
-				if (!match) {
-					console.error("Invalid version format:", version);
-					return null;
-				}
-				return {
-					major: parseInt(match[1], 10),
-					minor: parseInt(match[2], 10),
-					patch: parseInt(match[3], 10),
-					preRelease: match[4] || '',
-					buildMetadata: match[5] || ''
-				};
-			};
-
-			const a = parseVersion(versionA);
-			const b = parseVersion(versionB);
-
-			if (!a || !b) return 0; // Error case handled by parseVersion
-
-			if (a.major !== b.major) return a.major > b.major ? 1 : -1;
-			if (a.minor !== b.minor) return a.minor > b.minor ? 1 : -1;
-			if (a.patch !== b.patch) return a.patch > b.patch ? 1 : -1;
-
-			// If both versions have no pre-release, they are equal at this point
-			if (!a.preRelease && !b.preRelease) return 0;
-
-			// A version without a pre-release field (stable version) should be considered newer than one with a pre-release field
-			if (!a.preRelease) return 1;
-			if (!b.preRelease) return -1;
-
-			// Compare pre-release identifiers
-			// Split pre-release into parts and compare each part
-			const prePartsA = a.preRelease.split('.');
-			const prePartsB = b.preRelease.split('.');
-			for (let i = 0; i < Math.max(prePartsA.length, prePartsB.length); i++) {
-				const partA = prePartsA[i];
-				const partB = prePartsB[i];
-
-				// When one pre-release part is undefined, the other is considered greater
-				if (partA === undefined) return -1;
-				if (partB === undefined) return 1;
-
-				// Numeric comparison for numeric parts, lexicographic for strings
-				const numPartA = parseInt(partA, 10);
-				const numPartB = parseInt(partB, 10);
-				if (!isNaN(numPartA) && !isNaN(numPartB)) {
-					if (numPartA !== numPartB) return numPartA > numPartB ? 1 : -1;
-				} else {
-					if (partA !== partB) return partA > partB ? 1 : -1;
-				}
-			}
-
-			// If all parts of pre-release identifiers are equal, the versions are considered equal
-			return 0;
+		function getVersionToDisplay(groupedVersion) {
+		    // If the latest version is a release, display only itù
+		    // If the latest version is a beta, display it and the newest stable release available
+		    // If the latest version is an alpha, display it, the newest beta available and the newest stable release available
+		    const versionsToDisplay = [];
+		
+		    for (const version in groupedVersion) {
+		        if (groupedVersion[version].length > 0) {
+		            let firstAlpha = null;
+		            let firstBeta = null;
+		            let firstRelease = null;
+				
+		            for (const item of groupedVersion[version]) {
+		                if (!item.name.toLowerCase().includes('alpha') && !item.name.toLowerCase().includes('beta')) {
+		                    firstRelease = item;
+		                    break;
+		                } else if (item.name.toLowerCase().includes('beta') && !firstBeta) {
+		                    firstBeta = item;
+		                } else if (item.name.toLowerCase().includes('alpha') && !firstAlpha && !firstBeta) {
+		                    firstAlpha = item;
+		                    for (const subItem of groupedVersion[version]) {
+		                        if (subItem.name.toLowerCase().includes('beta') && !firstBeta) {
+		                            firstBeta = subItem;
+		                        } else if (!subItem.name.toLowerCase().includes('alpha') && !subItem.name.toLowerCase().includes('beta') && !firstRelease) {
+		                            firstRelease = subItem;
+		                        }
+		                        if (firstBeta && firstRelease) {
+		                            break;
+		                        }
+		                    }
+		                }
+		            }
+		            if (firstAlpha) versionsToDisplay.push(firstAlpha);
+		            if (firstBeta) versionsToDisplay.push(firstBeta);
+		            if (firstRelease) versionsToDisplay.push(firstRelease);
+				
+		        }
+		    }
+		
+		    return versionsToDisplay;
 		}
 
 		function populateDropdownAndSetupButton(versions) {
-			const versionsDropdown = document.getElementById('versionsDropdown');
-
-			versions.forEach(version => {
-				const option = document.createElement('option');
-				option.textContent = version.name; 
-				option.value = version.files[0].url;
-				versionsDropdown.appendChild(option);
-			});
-
-			const specialOption = document.createElement('option');
-			specialOption.textContent = '4.6.1, 4.5.7, ...';
-			specialOption.value = 'CurseForge';
-			versionsDropdown.appendChild(specialOption);
-
-			// Set up the "Go" button to download the selected pack or open the URL
-			const goButton = document.getElementById('goButton');
-			goButton.onclick = () => {
-				const selectedURL = versionsDropdown.value;
-				if (selectedURL === 'CurseForge') {
-					window.open("https://www.curseforge.com/minecraft/modpacks/fabulously-optimized/files?showAlphaFiles=show", '_blank');
-				} else {
-					downloadPack(selectedURL);
-				}
-			};
+		    const versionsDropdown = document.getElementById('versionsDropdown');
+		
+		    versions.forEach(version => {
+		        const option = document.createElement('option');
+		        option.textContent = version.name; 
+		        option.value = version.files[0].url;
+		        versionsDropdown.appendChild(option);
+		    });
+		
+		    const specialOption = document.createElement('option');
+		    specialOption.textContent = '4.6.1, 4.5.7, ...';
+		    specialOption.value = 'CurseForge';
+		    versionsDropdown.appendChild(specialOption);
+		
+		    // Set up the "Go" button to download the selected pack or open the URL
+		    const goButton = document.getElementById('goButton');
+		    goButton.onclick = () => {
+		        const selectedURL = versionsDropdown.value;
+		        if (selectedURL === 'CurseForge') {
+		            window.open("https://www.curseforge.com/minecraft/modpacks/fabulously-optimized/files?showAlphaFiles=show", '_blank');
+		        } else {
+		            downloadPack(selectedURL);
+		        }
+		    };
 		}
 
-		const jsonURL = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
+		const apiUrl = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
 
 		urlParams = new URLSearchParams(window.location.search);
 		const downloadParam = urlParams.get('download');
 		const downloadLatestButtonVanilla = document.getElementById('downloadLatest');
 
-		loadVersionsFromURL(jsonURL)
-			.then(data => {
-				if (data) {
-					let versionsToDisplay = getLatestVersionsForAllGameVersions(data);
-					populateDropdownAndSetupButton(versionsToDisplay);
-
-					if (downloadParam === 'latest') {
-						// Download the first (newest) item
-						downloadPack(versionsToDisplay[0].files[0].url);
-					} else if (downloadParam) {
-						// Download specific version based on query parameter
-						const foundVersion = versionsToDisplay.find(version => version.game_versions[0] === downloadParam);
-						if (foundVersion) {
-							downloadPack(foundVersion.files[0].url);
-						} else {
-							alert('Requested version not found');
-						}
-					}
-				} else {
-					console.error('Failed to load data');
-				}
-			})
-			.catch(error => console.error('Error:', error));
+		loadVersionsFromURL(apiUrl)
+		    .then(data => {
+		        if (data) {
+		            const groupedVersion = groupByGameVersions(data);
+		            const versionsToDisplay = getVersionToDisplay(groupedVersion);
+		            populateDropdownAndSetupButton(versionsToDisplay);
+		            if (downloadParam === 'latest') {
+		                // Download the first (newest) item
+		                downloadPack(versionsToDisplay[0].files[0].url);
+		            } else if (downloadParam) {
+		                // Download specific version based on query parameter
+		                const foundVersion = versionsToDisplay.find(version => version.game_versions[0] === downloadParam);
+		                if (foundVersion) {
+		                    downloadPack(foundVersion.files[0].url);
+		                } else {
+		                    alert('Requested version not found');
+		                }
+		            }
+		        } else {
+		            console.error('Failed to load data');
+		        }
+		    })
+		    .catch(error => console.error('Error:', error));
 	</script>
 
 	<script src="./assets/js/FileSaver.min.js"></script>
