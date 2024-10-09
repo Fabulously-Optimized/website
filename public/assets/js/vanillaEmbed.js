@@ -24,7 +24,7 @@ function compareSemver(versionA, versionB) {
     }
 
     return 0; // Versions are equal
-}	
+}
 
 function isVersionAllowed(version, minVersion = '1.19.4') {
     return compareSemver(version, minVersion) >= 0;
@@ -33,13 +33,13 @@ function isVersionAllowed(version, minVersion = '1.19.4') {
 function groupByGameVersions(data) {
     const groupedVersion = {};
 
-    data.forEach(item => { //forEach FO release
-        item.game_versions.forEach(version => { // for each compatible mc_version of said release
-            if (isVersionAllowed(version)) { // if it's not less than 1.19.4 (such older versions have to be downloaded from curseforge)
-                if (!groupedVersion[version]) {      // if we don't have an array for this minecraft_version yet create one
+    data.forEach(item => {
+        item.game_versions.forEach(version => {
+            if (isVersionAllowed(version)) {
+                if (!groupedVersion[version]) {
                     groupedVersion[version] = [];
                 }
-                groupedVersion[version].push(item); // add the release to the minecraft_version array
+                groupedVersion[version].push(item);
             }
         });
     });
@@ -103,7 +103,8 @@ function getVersionToDisplay(groupedVersion) {
             else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
         }
     }
-    // Sort versionsToDisplay by game_version field", to make newer versions appear first
+
+    // Sort versionsToDisplay by game_version field, to make newer versions appear first
     versionsToDisplay.sort((a, b) => compareSemver(b.game_versions[0], a.game_versions[0]));
 
     return versionsToDisplay;
@@ -140,7 +141,6 @@ const apiUrl = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
 
 const urlParams = new URLSearchParams(window.location.search);
 const downloadParam = urlParams.get('download');
-const downloadLatestButtonVanilla = document.getElementById('downloadLatest');
 
 loadVersionsFromURL(apiUrl)
     .then(data => {
