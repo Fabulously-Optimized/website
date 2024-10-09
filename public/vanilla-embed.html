@@ -84,18 +84,25 @@
 		    }
 		}
 
+		function compareSemver(versionA, versionB) {
+    		const partsA = versionA.split('.').map(Number);
+    		const partsB = versionB.split('.').map(Number);
+
+    		const maxLength = Math.max(partsA.length, partsB.length);
+
+    		for (let i = 0; i < maxLength; i++) {
+    		    const numA = partsA[i] || 0;
+    		    const numB = partsB[i] || 0;
+
+    		    if (numA > numB) return 1;
+    		    if (numA < numB) return -1;
+    		}
+
+    		return 0; // Versions are equal
+		}	
+
 		function isVersionAllowed(version, minVersion = '1.19.4') {
-			version = version.split('.').map(Number);  // split the versions string into an array of numbers ex (1.19.4 -> [1, 19, 4])
-			minVersion = minVersion.split('.').map(Number);
-
-			for (let i = 0; i < Math.max(version.length, minVersion.length); i++) {  // check witch version is higher
-				const num1 = version[i] || 0;
-				const num2 = minVersion[i] || 0;
-
-				if (num1 > num2) return true;
-				if (num1 < num2) return false;
-			}
-			return true; // Return true if versions are equal
+			return compareSemver(version, minVersion) >= 0;
 		}
 
 		function groupByGameVersions(data) {
@@ -171,22 +178,10 @@
 					else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
 	            }
 	        }
-				// Sort versionsToDisplay by the number after the "for", to make newer versions appear first
-				versionsToDisplay.sort((a, b) => {
-				    const extractNumber = (name) => {
-				        const match = name.match(/for\s*([\d. ]+)/i); // Match "for" followed by numbers, dots, and spaces
-				        if (match) {
-				            return match[1].replace(/[. ]/g, ''); // Remove dots and spaces
-				        }
-				        return '';
-				    };
+			// Sort versionsToDisplay by game_version field", to make newer versions appear first
+			versionsToDisplay.sort((a, b) => compareSemver(b.game_versions[0], a.game_versions[0]));
 
-				    const numA = extractNumber(a.name);
-				    const numB = extractNumber(b.name);
-
-				    return numB.localeCompare(numA, undefined, { numeric: true }); // Swap numA and numB to invert the sorting order
-				});
-			    return versionsToDisplay;
+			return versionsToDisplay;
 		}
 
 		function populateDropdownAndSetupButton(versions) {
