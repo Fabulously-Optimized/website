@@ -115,60 +115,78 @@
 		    return groupedVersion;
 		}
 
-		function getVersionToDisplay(groupedVersion) {
-		    // If the latest version is a release, display only it
-		    // If the latest version is a beta, display it and the newest stable release available
-		    // If the latest version is an alpha, display it, the newest beta available and the newest stable release available
-		    const versionsToDisplay = [];
+		function getFirstRelease(versionItems) {
+	        for (let i = 0; i < versionItems.length; i++) {
+	            if (!versionItems[i].name.toLowerCase().includes('alpha') && !versionItems[i].name.toLowerCase().includes('beta')) {
+	                return { item: versionItems[i], index: i };
+	            }
+	        }
+	        return { item: null, index: -1 };
+	    }
 
-		    for (const version in groupedVersion) {
-		        if (groupedVersion[version].length > 0) {
-		            let firstAlpha = null;
-		            let firstBeta = null;
-		            let firstRelease = null;
+	    function getFirstBeta(versionItems) {
+	        for (let i = 0; i < versionItems.length; i++) {
+	            if (versionItems[i].name.toLowerCase().includes('beta')) {
+	                return { item: versionItems[i], index: i };
+	            }
+	        }
+	        return { item: null, index: -1 };
+	    }
 
-		            for (const item of groupedVersion[version]) {
-		                if (!item.name.toLowerCase().includes('alpha') && !item.name.toLowerCase().includes('beta')) {
-		                    firstRelease = item;
-		                    break;
-		                } else if (item.name.toLowerCase().includes('beta') && !firstBeta) {
-		                    firstBeta = item;
-		                } else if (item.name.toLowerCase().includes('alpha') && !firstAlpha && !firstBeta) {
-		                    firstAlpha = item;
-		                    for (const subItem of groupedVersion[version]) {
-		                        if (subItem.name.toLowerCase().includes('beta') && !firstBeta) {
-		                            firstBeta = subItem;
-		                        } else if (!subItem.name.toLowerCase().includes('alpha') && !subItem.name.toLowerCase().includes('beta') && !firstRelease) {
-		                            firstRelease = subItem;
-		                        }
-		                        if (firstBeta && firstRelease) {
-		                            break;
-		                        }
-		                    }
-		                }
-		            }
-		            if (firstAlpha) versionsToDisplay.push(firstAlpha);
-		            if (firstBeta) versionsToDisplay.push(firstBeta);
-		            if (firstRelease) versionsToDisplay.push(firstRelease);
+	    function getFirstAlpha(versionItems) {
+	        for (let i = 0; i < versionItems.length; i++) {
+	            if (versionItems[i].name.toLowerCase().includes('alpha')) {
+	                return { item: versionItems[i], index: i };
+	            }
+	        }
+	        return { item: null, index: -1 };
+	    }
 
-		        }
-		    }
-			// Sort versionsToDisplay by the number after the "for", to make newer versions appear first
-			versionsToDisplay.sort((a, b) => {
-			    const extractNumber = (name) => {
-			        const match = name.match(/for\s*([\d. ]+)/i); // Match "for" followed by numbers, dots, and spaces
-			        if (match) {
-			            return match[1].replace(/[. ]/g, ''); // Remove dots and spaces
-			        }
-			        return '';
-			    };
+	    function getVersionToDisplay(groupedVersion) {
+	        const versionsToDisplay = [];
 
-			    const numA = extractNumber(a.name);
-			    const numB = extractNumber(b.name);
+	        for (const version in groupedVersion) {
+	            if (groupedVersion[version].length > 0) {
+	                const versionItems = groupedVersion[version];
 
-			    return numB.localeCompare(numA, undefined, { numeric: true }); // Swap numA and numB to invert the sorting order
-			});
-		    return versionsToDisplay;
+					const firstRelease = getFirstRelease(versionItems);
+	                const firstBeta = getFirstBeta(versionItems);
+	                const firstAlpha = getFirstAlpha(versionItems);
+
+					if (firstRelease.item) {
+	                    versionsToDisplay.push(firstRelease.item);
+						if (firstBeta.item.featured) {
+							versionsToDisplay.push(firstBeta.item);
+	                	}
+						else if (firstAlpha.item.featured) {
+							versionsToDisplay.push(firstAlpha.item);
+						}
+					}
+					else if (firstBeta.item) {
+						versionsToDisplay.push(firstBeta.item);
+						if (firstAlpha.item.featured) {
+							versionsToDisplay.push(firstAlpha.item);
+						}
+					}
+					else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
+	            }
+	        }
+				// Sort versionsToDisplay by the number after the "for", to make newer versions appear first
+				versionsToDisplay.sort((a, b) => {
+				    const extractNumber = (name) => {
+				        const match = name.match(/for\s*([\d. ]+)/i); // Match "for" followed by numbers, dots, and spaces
+				        if (match) {
+				            return match[1].replace(/[. ]/g, ''); // Remove dots and spaces
+				        }
+				        return '';
+				    };
+
+				    const numA = extractNumber(a.name);
+				    const numB = extractNumber(b.name);
+
+				    return numB.localeCompare(numA, undefined, { numeric: true }); // Swap numA and numB to invert the sorting order
+				});
+			    return versionsToDisplay;
 		}
 
 		function populateDropdownAndSetupButton(versions) {
