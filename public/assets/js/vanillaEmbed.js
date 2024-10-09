@@ -50,28 +50,46 @@ function groupByGameVersions(data) {
 function getFirstRelease(versionItems) {
     for (let i = 0; i < versionItems.length; i++) {
         if (!versionItems[i].name.toLowerCase().includes('alpha') && !versionItems[i].name.toLowerCase().includes('beta')) {
-            return { item: versionItems[i], index: i };
+            return {
+                item: versionItems[i],
+                index: i
+            };
         }
     }
-    return { item: null, index: -1 };
+    return {
+        item: null,
+        index: -1
+    };
 }
 
 function getFirstBeta(versionItems) {
     for (let i = 0; i < versionItems.length; i++) {
         if (versionItems[i].name.toLowerCase().includes('beta')) {
-            return { item: versionItems[i], index: i };
+            return {
+                item: versionItems[i],
+                index: i
+            };
         }
     }
-    return { item: null, index: -1 };
+    return {
+        item: null,
+        index: -1
+    };
 }
 
 function getFirstAlpha(versionItems) {
     for (let i = 0; i < versionItems.length; i++) {
         if (versionItems[i].name.toLowerCase().includes('alpha')) {
-            return { item: versionItems[i], index: i };
+            return {
+                item: versionItems[i],
+                index: i
+            };
         }
     }
-    return { item: null, index: -1 };
+    return {
+        item: null,
+        index: -1
+    };
 }
 
 function getVersionToDisplay(groupedVersion) {
@@ -89,18 +107,15 @@ function getVersionToDisplay(groupedVersion) {
                 versionsToDisplay.push(firstRelease.item);
                 if (firstBeta.item.featured) {
                     versionsToDisplay.push(firstBeta.item);
-                }
-                else if (firstAlpha.item.featured) {
+                } else if (firstAlpha.item.featured) {
                     versionsToDisplay.push(firstAlpha.item);
                 }
-            }
-            else if (firstBeta.item) {
+            } else if (firstBeta.item) {
                 versionsToDisplay.push(firstBeta.item);
                 if (firstAlpha.item.featured) {
                     versionsToDisplay.push(firstAlpha.item);
                 }
-            }
-            else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
+            } else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
         }
     }
 
