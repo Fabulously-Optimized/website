@@ -47,49 +47,13 @@ function groupByGameVersions(data) {
     return groupedVersion;
 }
 
-function getFirstRelease(versionItems) {
+function getFirstVersionItem(versionItems, type) {
     for (let i = 0; i < versionItems.length; i++) {
-        if (!versionItems[i].name.toLowerCase().includes('alpha') && !versionItems[i].name.toLowerCase().includes('beta')) {
-            return {
-                item: versionItems[i],
-                index: i
-            };
+        if (versionItems[i].version_type === type) {
+            return { item: versionItems[i], index: i };
         }
     }
-    return {
-        item: null,
-        index: -1
-    };
-}
-
-function getFirstBeta(versionItems) {
-    for (let i = 0; i < versionItems.length; i++) {
-        if (versionItems[i].name.toLowerCase().includes('beta')) {
-            return {
-                item: versionItems[i],
-                index: i
-            };
-        }
-    }
-    return {
-        item: null,
-        index: -1
-    };
-}
-
-function getFirstAlpha(versionItems) {
-    for (let i = 0; i < versionItems.length; i++) {
-        if (versionItems[i].name.toLowerCase().includes('alpha')) {
-            return {
-                item: versionItems[i],
-                index: i
-            };
-        }
-    }
-    return {
-        item: null,
-        index: -1
-    };
+    return { item: null, index: -1 };
 }
 
 function getVersionToDisplay(groupedVersion) {
@@ -99,9 +63,9 @@ function getVersionToDisplay(groupedVersion) {
         if (groupedVersion[version].length > 0) {
             const versionItems = groupedVersion[version];
 
-            const firstRelease = getFirstRelease(versionItems);
-            const firstBeta = getFirstBeta(versionItems);
-            const firstAlpha = getFirstAlpha(versionItems);
+            const firstRelease = getFirstVersionItem(versionItems, 'release');
+            const firstBeta = getFirstVersionItem(versionItems, 'beta');
+            const firstAlpha = getFirstVersionItem(versionItems, 'alpha');
 
             if (firstRelease.item) {
                 versionsToDisplay.push(firstRelease.item);
