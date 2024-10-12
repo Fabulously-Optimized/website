@@ -66,7 +66,7 @@ async function downloadLatestPack(id) {
   downloadPack(data[0].files[0].url);
 }
 
-function downloadPack(url) {
+window.downloadPack = function(url) {
   if (url.includes("modpack")) {
     alert("Please copy the link of the green download button, not the version page!");
     return;
