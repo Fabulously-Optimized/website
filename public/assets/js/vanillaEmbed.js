@@ -117,8 +117,7 @@ function populateDropdownAndSetupButton(versions) {
 }
 
 const apiUrl = 'https://api.modrinth.com/v2/project/1KVo5zza/version';
-
-const downloadParam = urlParams.get('download');
+const downloadParam = urlParams.get('download'); //urlParams from converter.js
 
 loadVersionsFromURL(apiUrl)
     .then(data => {
