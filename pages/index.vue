@@ -42,7 +42,7 @@ useSeoMeta({
           <DownloadIcon />Modrinth
         </Button>
         <Button color="gray" @click="navigateTo(`/vanilla`, { external: true })">
-          <DownloadIcon />{{ $t("content.home.columned-hero.vanilla") }}
+          <DownloadIcon />{{ $t("content.vanilla.title.installer") }}
         </Button>
       </div>
       <div>
