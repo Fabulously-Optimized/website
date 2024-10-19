@@ -52,9 +52,8 @@ const downloadLatestRelease = async (fileExtension: string, isStable: boolean) =
       asset.name.endsWith(fileExtension)
     );
 
-    if (!asset) downloadUrl = releasesUrl;
-
-    const downloadUrl = asset.browser_download_url;
+    let downloadUrl = releasesUrl; 
+    if (asset) downloadUrl = asset.browser_download_url;
     window.location.href = downloadUrl;
   } catch (error) {
     console.error('Error downloading release:', error);
