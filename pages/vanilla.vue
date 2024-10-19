@@ -77,28 +77,28 @@ onMounted(() => {
 
   <div class="buttons">
     <!-- Display the green button first based on the detected OS -->
-    <Button v-if="detectedOS === 'Windows'" color="green" @click="downloadLatestRelease('.exe', false)">
+    <Button v-if="detectedOS === 'Windows'" color="green" @click="downloadLatestRelease('.exe', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.windows") }}
     </Button>
 
-    <Button v-if="detectedOS === 'macOS'" color="green" @click="downloadLatestRelease('.dmg', false)">
+    <Button v-if="detectedOS === 'macOS'" color="green" @click="downloadLatestRelease('.dmg', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.macos") }}
     </Button>
 
-    <Button v-if="detectedOS === 'Linux'" color="green" @click="downloadLatestRelease('.AppImage', false)">
+    <Button v-if="detectedOS === 'Linux'" color="green" @click="downloadLatestRelease('.AppImage', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.linux") }}
     </Button>
 
     <!-- Gray buttons for the other OSes -->
-    <Button v-if="detectedOS !== 'Windows'" color="gray" @click="downloadLatestRelease('.exe', false)">
+    <Button v-if="detectedOS !== 'Windows'" color="gray" @click="downloadLatestRelease('.exe', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.windows") }}
     </Button>
 
-    <Button v-if="detectedOS !== 'macOS'" color="gray" @click="downloadLatestRelease('.dmg', false)">
+    <Button v-if="detectedOS !== 'macOS'" color="gray" @click="downloadLatestRelease('.dmg', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.macos") }}
     </Button>
 
-    <Button v-if="detectedOS !== 'Linux'" color="gray" @click="downloadLatestRelease('.AppImage', false)">
+    <Button v-if="detectedOS !== 'Linux'" color="gray" @click="downloadLatestRelease('.AppImage', true)">
       <DownloadIcon />{{ $t("content.vanilla.button.linux") }}
     </Button>
   </div>
