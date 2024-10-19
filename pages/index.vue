@@ -230,7 +230,7 @@ useSeoMeta({
     <div class="buttons">
       <Button :large="true" color="orange" @click="navigateTo(`/curseforge`, { external: true })">CurseForge</Button>
       <Button :large="true" color="green" @click="navigateTo(`/modrinth`, { external: true })">Modrinth</Button>
-      <Button :large="true" color="gray" @click="navigateTo(`/vanilla`, { external: true })">{{ $t("content.home.columned-hero.vanilla") }}</Button>
+      <Button :large="true" color="gray" @click="navigateTo(`/vanilla`, { external: true })">{{ $t("content.vanilla.title.installer") }}</Button>
     </div>
     <div style="margin: -1em">
     <i18n-t keypath="content.home.columned-hero.disclaimer" tag="p" id="disclaimer-text">
