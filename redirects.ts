@@ -20,6 +20,8 @@ export const redirects = [
   ["/terms", "https://wiki.download.fo/readme/disclaimers"],
   ["/translate", "https://wiki.download.fo/readme/language-support"],
   ["/thanks", "/contribute"],
+  ["/donate", "/contribute"],
+  ["/server", "https://wiki.download.fo/server-setup"],
   ["/update", "https://wiki.download.fo/readme/update-instructions"],
   ["/wiki", "https://wiki.download.fo"]
 ]
