@@ -23,5 +23,6 @@ export const redirects = [
   ["/donate", "/contribute"],
   ["/server", "https://wiki.download.fo/server-setup"],
   ["/update", "https://wiki.download.fo/readme/update-instructions"],
+  ["/playerfinder", "https://fabulously-optimized.github.io/playerfinder"],
   ["/wiki", "https://wiki.download.fo"]
 ]
