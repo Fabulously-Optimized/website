@@ -1,4 +1,6 @@
 export const redirects = [
+  ["/add", "https://wiki.download.fo/adding-more-mods"],
+  ["/cape", "https://wiki.download.fo/free-cape"],
   ["/curseforge", "https://www.curseforge.com/minecraft/modpacks/fabulously-optimized"],
   ["/changelog", "https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/CHANGELOG.md#fabulously-optimized-changelog"],
   ["/discord", "https://discord.gg/fabulously-optimized-859124104644788234"],
