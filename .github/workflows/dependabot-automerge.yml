@@ -1,0 +1,51 @@
+# .github/workflows/dependabot-automerge.yml  (optional - automerge Dependabot PRs iff CI passes)
+name: Dependabot auto-merge (CI gated)
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test-and-merge:
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'   # set to your project's Node version
+
+      - name: Enable pnpm (Corepack)
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Install & run tests
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm test           # replace with your real test/build commands
+
+      - name: Merge Dependabot PR when tests pass
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            if (pr && pr.user && pr.user.login === 'dependabot[bot]') {
+              await github.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                merge_method: 'squash'
+              });
+            }
