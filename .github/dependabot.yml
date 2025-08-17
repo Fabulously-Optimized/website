@@ -12,11 +12,11 @@ updates:
       - "javascript"
     ignore:
       # avoid noisy / risky major Nuxt upgrades — handle major Nuxt updates manually
-      - dependency-name: "nuxt"
-        update-types: ["version-update:semver-major"]
+      #- dependency-name: "nuxt"
+      #  update-types: ["version-update:semver-major"]
       # optionally ignore Vue major bumps if you prefer manual migration
-      - dependency-name: "vue"
-        update-types: ["version-update:semver-major"]
+      #- dependency-name: "vue"
+      #  update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
