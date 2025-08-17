@@ -33,6 +33,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/color-mode', '@nuxtjs/i18n', "@nuxt/image"],
   nitro: {
     preset: 'github-pages',
+    compatibilityDate: '2025-08-17',
   },
   colorMode: {
     preference: 'system',
@@ -66,7 +67,7 @@ export default defineNuxtConfig({
     },
     lazy: true,
     strategy: 'no_prefix',
-    langDir: 'lang',
+    langDir: '../lang',
     defaultLocale: 'en'
   },
 })
