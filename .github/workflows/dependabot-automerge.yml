@@ -33,7 +33,7 @@ jobs:
       - name: Install & run tests
         run: |
           pnpm install --frozen-lockfile
-          pnpm test           # replace with your real test/build commands
+          pnpm dev
 
       - name: Merge Dependabot PR when tests pass
         uses: actions/github-script@v7
