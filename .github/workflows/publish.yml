@@ -1,49 +1,31 @@
 name: Deploy to GitHub Pages
-
-on:
+on: 
   push:
     branches:
-      - production
-
+        - "production"
 jobs:
   build:
     runs-on: ubuntu-22.04
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-
+      - name: Enable CorePack
+        run: corepack enable pnpm
+      - name: Prepare CorePack
+        run: corepack prepare pnpm@8.6.1 --activate
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "18"
           check-latest: true
-          cache: 'pnpm'
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: Clean and install dependencies
-        run: |
-          rm -rf node_modules pnpm-lock.yaml
-          pnpm store prune || true
-          pnpm install --ignore-scripts=false --no-frozen-lockfile
-
-      - name: Rebuild native bindings
-        run: |
-          pnpm rebuild oxc-parser || true
-          pnpm rebuild sharp || true
-
-      - name: Build project
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build using pnpm
         run: pnpm run build
         env:
           NITRO_PRESET: github_pages
-
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
