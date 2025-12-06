@@ -1,24 +1,17 @@
-# .github/dependabot.yml
 version: 2
 updates:
-  - package-ecosystem: "npm"        # use "npm" even with pnpm (Dependabot detects pnpm-lock.yaml)
-    directory: "/"                 # root of your repo (package.json + pnpm-lock.yaml present)
+  - package-ecosystem: "npm"
+    cooldown:
+      default-days: 7
+    directory: "/"
     schedule:
-      interval: "weekly"
-      time: "04:00"
-    open-pull-requests-limit: 10
+      interval: "monthly"
     labels:
       - "dependencies"
       - "javascript"
-    ignore:
-      # avoid noisy / risky major Nuxt upgrades — handle major Nuxt updates manually
-      #- dependency-name: "nuxt"
-      #  update-types: ["version-update:semver-major"]
-      # optionally ignore Vue major bumps if you prefer manual migration
-      #- dependency-name: "vue"
-      #  update-types: ["version-update:semver-major"]
-
   - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
