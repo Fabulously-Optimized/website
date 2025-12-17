@@ -12,6 +12,7 @@ export const redirects = [
   ["/java8", "https://adoptium.net/temurin/releases/?version=8&package=jre&arch=x64"],
   ["/java17", "https://adoptium.net/temurin/releases/?version=17&package=jre&arch=x64#version-filter"],
   ["/java21", "https://adoptium.net/temurin/releases/?version=21&package=jre&arch=x64#version-filter"],
+  ["/java25", "https://adoptium.net/temurin/releases/?version=25&package=jre&arch=x64#version-filter"],
   ["/lego", "https://youtu.be/o-YBDTqX_ZU"],
   ["/mastodon", "https://floss.social/@fabulouslyoptimized"],
   ["/minecraft", "https://punktid.com/minecraft-java-bedrock?ref=robotkoer"],
