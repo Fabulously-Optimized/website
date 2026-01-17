@@ -12,7 +12,7 @@ const fileInput = document.getElementById("file-input");
 const fileName = document.getElementById("file-name");
 
 const mrApi = "https://api.modrinth.com/v2/project/"
-const mrApiGetVersions = "/version"
+const mrApiGetVersions = "/version?include_changelog=false"
 
 if (urlParam != null) {
   downloadPack(urlParam);
