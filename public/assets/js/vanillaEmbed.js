@@ -69,17 +69,14 @@ function getVersionToDisplay(groupedVersion) {
 
             if (firstRelease.item) {
                 versionsToDisplay.push(firstRelease.item);
-                if (firstBeta.item.featured) {
-                    versionsToDisplay.push(firstBeta.item);
-                } else if (firstAlpha.item.featured) {
-                    versionsToDisplay.push(firstAlpha.item);
-                }
             } else if (firstBeta.item) {
                 versionsToDisplay.push(firstBeta.item);
-                if (firstAlpha.item.featured) {
-                    versionsToDisplay.push(firstAlpha.item);
-                }
             } else if (firstAlpha.item) versionsToDisplay.push(firstAlpha.item);
+
+            for(const versionItem of versionItems){
+                if(versionItem.name.includes('▫️'))
+                    versionsToDisplay.push(versionItem);
+            }
         }
     }
 
