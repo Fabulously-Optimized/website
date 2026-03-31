@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   axios:
-    specifier: ^1.13.2
-    version: 1.13.2
+    specifier: ^1.13.5
+    version: 1.13.5
   omorphia:
     specifier: ^0.9.5
     version: 0.9.5(@nuxt/kit@4.3.1)(vue@3.5.25)
@@ -3950,8 +3950,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /axios@1.13.2:
-    resolution: {integrity: sha512-VPk9ebNqPcy5lRGuSlKx752IlDatOjT9paPlm8A7yOuW2Fbvp4X3JznJtT4f0GzGLLiWE9W8onz51SqLYwzGaA==}
+  /axios@1.13.5:
+    resolution: {integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==}
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
