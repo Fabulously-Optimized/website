@@ -1,8 +1,8 @@
 {
-  "navbar.links.home": "Pagina Principale",
+  "navbar.links.home": "Pagina principale",
   "navbar.links.wiki": "Wiki",
   "navbar.links.contribute": "Contribuisci",
-  "navbar.action.language": "Aiutaci a Tradurre!",
+  "navbar.action.language": "Aiutaci a tradurre!",
   "footer.header.contribute": "Contribuisci",
   "footer.header.discuss": "Discuti",
   "footer.header.download": "Scarica",
@@ -22,9 +22,9 @@
   "content.home.graph.fps": "FPS",
   "content.home.graph.small": "Testato su AMD Ryzen 5 2600 (12) {0} 3.400GHz e NVIDIA GeForce GTX 1060 3GB che eseguono Minecraft vanilla 1.20.1, un popolare client di gioco incentrato sulle prestazioni per Minecraft 1.20.1 e Fabulously Optimized 5.4.1 (giocatore singolo). I risultati potrebbero variare su altri sistemi.",
   "content.home.graph.competitor": "Popolare client di gioco",
-  "content.home.graph.vanilla": "Minecraft Vanilla",
+  "content.home.graph.vanilla": "Minecraft vanilla",
   "content.home.download.subtitle": "Consigliamo di usare CurseForge App, Modrinth App, Prism Launcher, MultiMC, o il Launcher ufficiale di Minecraft.",
-  "content.home.download.title": "Scarica Ora",
+  "content.home.download.title": "Scarica adesso",
   "content.home.features.title": "Perché dovresti usare Fabulously Optimized?",
   "content.home.features.videoID": "bb8G9X5Q_4I",
   "feature.performance.title": "Prestazioni",
@@ -44,7 +44,7 @@
   "feature.up-to-date.desc": "Fabulously Optimized {0} ed è ancora uno dei primi modpack ad essere aggiornato a nuove versioni di Minecraft. {1} e preserverà le tue impostazioni delle mod, ove possibile.",
   "feature.up-to-date.desc.0": "riceve aggiornamenti velocemente",
   "feature.up-to-date.desc.1": "Aggiornare il modpack è semplice",
-  "feature.built-on-fabric.title": "Costruito su Fabric",
+  "feature.built-on-fabric.title": "Basato su Fabric",
   "feature.built-on-fabric.desc": "Fabulously Optimized usa il loader di mod Fabric, che è leggero, veloce, e supporta tante mod. {0}",
   "feature.built-on-fabric.desc.0": "Puoi usare il modpack come base a cui aggiungere le tue mod preferite.",
   "feature.open-development.title": "Sviluppo aperto",
@@ -82,7 +82,7 @@
   "content.contribute.modpackAdBlockerTitle.adblocker": "Disattiva l'ad blocker su Modrinth",
   "content.contribute.modpackAdBlockerTitle.projects": "dai un'occhiata ai miei altri progetti",
   "content.contribute.modpackMinecraftServer": "🗄️ Crea un server Minecraft (25% di sconto sul primo mese!)",
-  "content.contribute.modpackShare": "🔗 Dì ai tuoi amici di scaricare FO a questo link: download.fo!",
+  "content.contribute.modpackShare": "🔗 Di' ai tuoi amici di scaricare FO a questo link: download.fo!",
   "content.contribute.contributeTitle": "Contribuisci",
   "content.contribute.contributeAdditionalSupportMessage": "E se volessi fare ancora di più, potresti sempre testare, scrivere e tradurre!",
   "content.contribute.contributeTestModsTitle": "🧪 Prova le mod che si prevede di includere",
@@ -91,5 +91,5 @@
   "content.contribute.contributeProgrammingTitle": "🧑‍💻 Aiuta con cose di programmazione",
   "content.contribute.contributeDiscordTitle": "💬 Chatta e dai feedback sul nostro Discord!",
   "content.contribute.contributeMustFollowCoc": "I contributori a Fabulously Optimized devono seguire il suo {0}.",
-  "content.contribute.contributeCodeOfConduct": "Codice di condotta"
+  "content.contribute.contributeCodeOfConduct": "Regolamento di condotta"
 }
