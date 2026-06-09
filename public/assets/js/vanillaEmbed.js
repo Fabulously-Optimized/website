@@ -97,7 +97,7 @@ function populateDropdownAndSetupButton(versions) {
     });
 
     const specialOption = document.createElement('option');
-    specialOption.textContent = '4.6.1, 4.5.7, ...';
+    specialOption.textContent = '3.15.0, 2.7.3, 1.12.3, ...';
     specialOption.value = 'CurseForge';
     versionsDropdown.appendChild(specialOption);
 
