@@ -20,7 +20,7 @@
   "dependencies": {
     "axios": "^1.15.2",
     "omorphia": "^0.9.5",
-    "sass": "^1.99.0"
+    "sass": "^1.100.0"
   },
   "packageManager": "pnpm@8.6.1"
 }
