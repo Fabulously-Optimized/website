@@ -20,6 +20,7 @@ export const redirects = [
   ["/modrinth", "https://modrinth.com/modpack/fabulously-optimized"],
   ["/mods", "https://github.com/Fabulously-Optimized/fabulously-optimized/blob/main/INCLUDED-MODS.md#included-mods"],
   ["/mrpack-to-zip", "https://fabulously-optimized.github.io/mrpack-to-zip/"],
+  ["/msjava", "https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-25"],
   ["/rate", "https://alternativeto.net/software/fabulously-optimized/about/"],
   ["/terms", "https://wiki.download.fo/readme/disclaimers"],
   ["/thanks", "/contribute"],
